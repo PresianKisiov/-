@@ -53,8 +53,8 @@ const timeline = [
   {
     period: '11-12г.',
     title: 'Откриване на нови светове',
-    desc: 'Тогава за първи път прочетох книги, които ми отвориха повече перспективата за света и за възможностите в него.',
-    lesson: 'Тогава разбрах колко е важно четенето и как то ми отваря перспективата.'
+    desc: 'Тогава за първи път прочетох книги, които разшириха мирогледа ми и ми показаха нови възможности в света.',
+    lesson: 'Тогава разбрах колко е важно четенето и как то разширява хоризонтите ми.'
   },
   {
     period: '12-14г.',
@@ -925,12 +925,12 @@ export default function Home() {
             </div>
             <div className="text-center">
               <h3 className="text-white font-medium text-sm sm:text-lg">LinkedIn</h3>
-              <p className="text-zinc-500 text-[10px] sm:text-sm mt-0.5 sm:mt-1">Presian Kisyov</p>
+              <p className="text-zinc-500 text-[10px] sm:text-sm mt-0.5 sm:mt-1">Presiyan</p>
             </div>
           </motion.a>
 
           <motion.a 
-            href="https://www.instagram.com/p.kisiovv/?hl=bg" 
+            href="https://www.instagram.com/p.kisyovv/?hl=en" 
             target="_blank" 
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -944,12 +944,12 @@ export default function Home() {
             </div>
             <div className="text-center">
               <h3 className="text-white font-medium text-sm sm:text-lg">Instagram</h3>
-              <p className="text-zinc-500 text-[10px] sm:text-sm mt-0.5 sm:mt-1">@p.kisiovv</p>
+              <p className="text-zinc-500 text-[10px] sm:text-sm mt-0.5 sm:mt-1">@p.kisyovv</p>
             </div>
           </motion.a>
 
           <motion.a 
-            href="mailto:presiankisiov594@gmail.com" 
+            href="mailto:preskokisiov@gmail.com" 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -961,7 +961,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <h3 className="text-white font-medium text-sm sm:text-lg">Имейл</h3>
-              <p className="text-zinc-500 text-[10px] sm:text-sm mt-0.5 sm:mt-1 truncate max-w-[120px] sm:max-w-[150px]">presiankisiov594@gmail.com</p>
+              <p className="text-zinc-500 text-[10px] sm:text-sm mt-0.5 sm:mt-1 truncate max-w-[120px] sm:max-w-[150px]">preskokisiov@gmail.com</p>
             </div>
           </motion.a>
         </div>

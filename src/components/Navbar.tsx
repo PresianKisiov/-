@@ -246,13 +246,13 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                 <div className="mt-auto pt-8 border-t border-white/10 relative z-10">
                   <p className="text-zinc-500 text-[10px] mb-4 ml-2 uppercase tracking-[0.2em] font-bold">Свържете се с мен</p>
                   <div className="flex gap-3">
-                    <a href="https://www.instagram.com/p.kisiovv/?hl=bg" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
+                    <a href="https://www.instagram.com/p.kisyovv/?hl=en" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
                       <Instagram size={22} />
                     </a>
                     <a href="https://www.linkedin.com/in/presian-kisyov/" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
                       <Linkedin size={22} />
                     </a>
-                    <a href="mailto:presiankisiov594@gmail.com" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
+                    <a href="mailto:preskokisiov@gmail.com" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
                       <Mail size={22} />
                     </a>
                   </div>
