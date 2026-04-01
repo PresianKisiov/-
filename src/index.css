@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-motto: "Outfit", sans-serif;
+  --color-brand: #00e599;
+  --color-brand-dark: #00c282;
+  --color-surface: #061411;
+  --color-surface-hover: #0a1f1a;
+  --color-border: rgba(0, 229, 153, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #010a08;
+  }
+  
+  /* Ensure smooth scrolling for all anchor links */
+  body {
+    scroll-behavior: smooth;
+    @apply font-sans antialiased;
+    background-color: #010a08;
+    color: #f4f4f5;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-brand/30 text-brand;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 229, 153, 0.3);
+  }
+  
+  .glass-panel {
+    @apply bg-surface/40 backdrop-blur-md border border-brand/10;
+  }
+}
+
+@utility outline-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
