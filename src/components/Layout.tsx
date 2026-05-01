@@ -18,9 +18,9 @@ export default function Layout() {
       <AnimatePresence>
         {isLoading && <PageLoader />}
       </AnimatePresence>
+      <Navbar onNavClick={triggerLoading} />
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 flex flex-col min-h-screen relative z-10">
-        <Navbar onNavClick={triggerLoading} />
-        <main className="flex-grow py-12">
+        <main className="flex-grow py-12 sm:py-24">
           <Outlet />
         </main>
         <Footer />

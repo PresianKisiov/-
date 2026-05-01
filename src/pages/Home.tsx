@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info } from 'lucide-react';
+import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const skills = [
@@ -249,6 +249,50 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Why I Started This Site Section */}
+      <motion.section 
+        id="why" 
+        className="scroll-mt-32 pt-12 sm:pt-20 px-4 sm:px-0 relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-3xl mx-auto">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-brand/20 to-transparent rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+            <div className="relative bg-[#020806] rounded-[2rem] p-6 sm:p-10 border border-brand/10 glass-panel">
+              <div className="space-y-4 sm:space-y-6 relative z-10">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="flex justify-center mb-2 sm:mb-4"
+                >
+                  <div className="p-2 sm:p-3 rounded-2xl bg-brand/10 text-brand">
+                    <Sparkles size={18} className="sm:size-6" />
+                  </div>
+                </motion.div>
+
+                <div className="text-center space-y-3 sm:space-y-4">
+                  <h2 className="text-brand font-bold uppercase tracking-[0.3em] text-[9px] sm:text-xs">Защо започнах този сайт?</h2>
+                  <div className="max-w-xl mx-auto overflow-hidden">
+                    <motion.p
+                      initial={{ y: 20, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8 }}
+                      className="text-sm sm:text-lg text-zinc-200 leading-relaxed font-light italic"
+                    >
+                      "Започнах го, за да следя прогреса си и да се развивам. Това е моят личен дневник на растежа."
+                    </motion.p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Mission & Values Section */}
       <motion.section 
         id="mission" 
@@ -258,9 +302,9 @@ export default function Home() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-4 sm:space-y-6 text-center mb-8 sm:mb-16">
+        <div className="space-y-4 sm:space-y-10 text-center mb-8 sm:mb-16">
           <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">
-            Мисия & Християнски ценности
+            Мисия & Ценности
           </h2>
           <motion.p 
             className="text-lg sm:text-4xl lg:text-5xl text-brand font-sans font-light italic tracking-tight"
@@ -291,12 +335,12 @@ export default function Home() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="p-5 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden"
+          className="p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand/5 blur-[80px] pointer-events-none" />
           
-          <div className="relative z-10 space-y-8 sm:space-y-12">
-            <div className="prose prose-invert max-w-none text-zinc-300 leading-relaxed text-base sm:text-xl space-y-4 sm:space-y-6">
+          <div className="relative z-10 space-y-6 sm:space-y-12">
+            <div className="prose prose-invert max-w-none text-zinc-300 leading-relaxed text-sm sm:text-xl space-y-3 sm:space-y-6">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -315,179 +359,174 @@ export default function Home() {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 py-2">
               {/* Person 1 */}
-              <div className="space-y-6 p-6 sm:p-8 rounded-3xl bg-[#0a1612]/60 border border-brand/20">
-                <h3 className="text-base sm:text-lg font-medium text-white flex items-center gap-2">
+              <div className="space-y-4 sm:space-y-6 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0a1612]/60 border border-brand/20">
+                <h3 className="text-sm sm:text-lg font-medium text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-brand" />
                   Осигурен човек (Аз)
                 </h3>
-                <div className="space-y-5">
+                <div className="space-y-4 sm:space-y-5">
                   <div>
-                    <div className="flex justify-between text-[10px] sm:text-xs text-zinc-500 mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1.5 group relative cursor-help">
+                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
+                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
                         <button 
-                          onClick={() => setActiveTooltip(activeTooltip === 'base-needs-1' ? null : 'base-needs-1')}
-                          className="flex items-center gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-brand transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setActiveTooltip(activeTooltip === 'base-needs-1' ? null : 'base-needs-1');
+                          }}
+                          className="flex items-center gap-1 sm:gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-brand transition-colors text-left"
                         >
                           <span>Базови нужди</span>
-                          <Info size={14} className={cn("transition-colors", activeTooltip === 'base-needs-1' ? "text-brand" : "text-zinc-500")} />
+                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'base-needs-1' ? "text-brand" : "text-zinc-500")} />
                         </button>
-                        <AnimatePresence>
-                          {(activeTooltip === 'base-needs-1' || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
-                            <motion.div 
-                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                              className={cn(
-                                "absolute bottom-full left-0 mb-2 w-64 sm:w-72 p-4 rounded-2xl bg-[#0a1612] border border-brand/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 text-zinc-200 text-xs normal-case tracking-normal font-normal leading-relaxed backdrop-blur-xl",
-                                typeof window !== 'undefined' && window.innerWidth >= 1024 ? "opacity-0 invisible group-hover:opacity-100 group-hover:visible" : "block"
-                              )}
-                            >
-                              <div className="text-brand font-bold mb-1 flex items-center gap-2">
-                                <Shield size={14} /> Разяснение
-                              </div>
-                              Базовите нужди са нещата, без които не можем да живеем – здраве, семейство, храна, дом. Те са основата, върху която градим всичко останало.
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
                       </div>
                       <span className="text-white">100%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full bg-brand w-full" />
                     </div>
+                    <AnimatePresence>
+                      {activeTooltip === 'base-needs-1' && (
+                        <motion.p 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="text-[10px] sm:text-sm text-brand-dark/90 mt-2 leading-relaxed font-medium bg-brand/5 p-2 rounded-lg border border-brand/10"
+                        >
+                          Храна, подслон и сигурност - когато тези неща са на 100%, човек може да мисли за по-високи цели.
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                   <div>
-                    <div className="flex justify-between text-[10px] sm:text-xs text-zinc-500 mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1.5 group relative cursor-help">
+                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
+                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
                         <button 
-                          onClick={() => setActiveTooltip(activeTooltip === 'motives-1' ? null : 'motives-1')}
-                          className="flex items-center gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-brand transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setActiveTooltip(activeTooltip === 'motives-1' ? null : 'motives-1');
+                          }}
+                          className="flex items-center gap-1 sm:gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-brand transition-colors text-left"
                         >
-                          <span>Мотиви за развитие</span>
-                          <Info size={14} className={cn("transition-colors", activeTooltip === 'motives-1' ? "text-brand" : "text-zinc-500")} />
+                          <span>Мотиви</span>
+                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'motives-1' ? "text-brand" : "text-zinc-500")} />
                         </button>
-                        <AnimatePresence>
-                          {(activeTooltip === 'motives-1' || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
-                            <motion.div 
-                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                              className={cn(
-                                "absolute bottom-full left-0 sm:-left-4 mb-2 w-72 sm:w-80 p-4 rounded-2xl bg-[#0a1612] border border-brand/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 text-zinc-200 text-xs normal-case tracking-normal font-normal leading-relaxed backdrop-blur-xl",
-                                typeof window !== 'undefined' && window.innerWidth >= 1024 ? "opacity-0 invisible group-hover:opacity-100 group-hover:visible" : "block"
-                              )}
-                            >
-                              <div className="text-brand font-bold mb-1 flex items-center gap-2">
-                                <Lightbulb size={14} /> Разяснение
-                              </div>
-                              Мотивите за развитие са нашите мечти и стремежи. Човек с покрити базови нужди има свободата да ги преследва, докато другият трябва първо да мисли за оцеляване. Ние помагаме, като споделяме ресурси, за да дадем шанс на другия да мечтае.
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
                       </div>
                       <span className="text-white">100%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full bg-brand-dark w-full" />
                     </div>
+                    <AnimatePresence>
+                      {activeTooltip === 'motives-1' && (
+                        <motion.p 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="text-[10px] sm:text-sm text-brand-dark/90 mt-2 leading-relaxed font-medium bg-brand/5 p-2 rounded-lg border border-brand/10"
+                        >
+                          Вътрешният двигател, който ме кара да се развивам и да помагам на другите.
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               </div>
 
               {/* Person 2 */}
-              <div className="space-y-6 p-6 sm:p-8 rounded-3xl bg-[#0a1612]/60 border border-brand/20">
-                <h3 className="text-base sm:text-lg font-medium text-white flex items-center gap-2">
+              <div className="space-y-4 sm:space-y-6 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0a1612]/60 border border-brand/20">
+                <h3 className="text-sm sm:text-lg font-medium text-white flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-red-500" />
                   Човек в нужда
                 </h3>
-                <div className="space-y-5">
+                <div className="space-y-4 sm:space-y-5">
                   <div>
-                    <div className="flex justify-between text-[10px] sm:text-xs text-zinc-500 mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1.5 group relative cursor-help">
+                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
+                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
                         <button 
-                          onClick={() => setActiveTooltip(activeTooltip === 'base-needs-2' ? null : 'base-needs-2')}
-                          className="flex items-center gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-red-500 transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setActiveTooltip(activeTooltip === 'base-needs-2' ? null : 'base-needs-2');
+                          }}
+                          className="flex items-center gap-1 sm:gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-red-500 transition-colors text-left"
                         >
                           <span>Базови нужди</span>
-                          <Info size={14} className={cn("transition-colors", activeTooltip === 'base-needs-2' ? "text-red-500" : "text-zinc-500")} />
+                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'base-needs-2' ? "text-red-500" : "text-zinc-500")} />
                         </button>
-                        <AnimatePresence>
-                          {(activeTooltip === 'base-needs-2' || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
-                            <motion.div 
-                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                              className={cn(
-                                "absolute bottom-full left-0 mb-2 w-64 sm:w-72 p-4 rounded-2xl bg-[#0a1612] border border-red-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 text-zinc-200 text-xs normal-case tracking-normal font-normal leading-relaxed backdrop-blur-xl",
-                                typeof window !== 'undefined' && window.innerWidth >= 1024 ? "opacity-0 invisible group-hover:opacity-100 group-hover:visible" : "block"
-                              )}
-                            >
-                              <div className="text-red-500 font-bold mb-1 flex items-center gap-2">
-                                <Shield size={14} /> Разяснение
-                              </div>
-                              Когато тези нужди не са покрити, целият фокус на човека е насочен към оцеляване, което прави преследването на мечти почти невъзможно без външна подкрепа.
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
                       </div>
                       <span className="text-white">30%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full bg-red-500 w-[30%]" />
                     </div>
+                    <AnimatePresence>
+                      {activeTooltip === 'base-needs-2' && (
+                        <motion.p 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="text-[10px] sm:text-sm text-red-400 mt-2 leading-relaxed font-medium bg-red-500/5 p-2 rounded-lg border border-red-500/10"
+                        >
+                          Липсата на подсигурени базови нужди често пречи на хората да видят собствения си потенциал.
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                   <div>
-                    <div className="flex justify-between text-[10px] sm:text-xs text-zinc-500 mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1.5 group relative cursor-help">
+                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
+                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
                         <button 
-                          onClick={() => setActiveTooltip(activeTooltip === 'motives-2' ? null : 'motives-2')}
-                          className="flex items-center gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-red-500 transition-colors"
-                        >
-                          <span>Мотиви за развитие</span>
-                          <Info size={14} className={cn("transition-colors", activeTooltip === 'motives-2' ? "text-red-500" : "text-zinc-500")} />
-                        </button>
-                        <AnimatePresence>
-                          {(activeTooltip === 'motives-2' || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
-                            <motion.div 
-                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                              className={cn(
-                                "absolute bottom-full left-0 sm:-left-4 mb-2 w-72 sm:w-80 p-4 rounded-2xl bg-[#0a1612] border border-red-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 text-zinc-200 text-xs normal-case tracking-normal font-normal leading-relaxed backdrop-blur-xl",
-                                typeof window !== 'undefined' && window.innerWidth >= 1024 ? "opacity-0 invisible group-hover:opacity-100 group-hover:visible" : "block"
-                              )}
-                            >
-                              <div className="text-red-500 font-bold mb-1 flex items-center gap-2">
-                                <Lightbulb size={14} /> Разяснение
-                              </div>
-                              Без стабилна основа, мечтите остават на заден план. Нашата мисия е да "прелеем" от нашите мотиви към техните базови нужди, докато те също стъпят здраво на краката си.
-                            </motion.div>
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setActiveTooltip(activeTooltip === 'motives-2' ? null : 'motives-2');
+                          }}
+                          className={cn(
+                            "flex items-center gap-1 sm:gap-1.5 border-b border-dashed transition-colors text-left",
+                            activeTooltip === 'motives-2' ? "text-red-500 border-red-500/50" : "text-zinc-500 border-zinc-500/50 hover:text-red-500"
                           )}
-                        </AnimatePresence>
+                        >
+                          <span>Мотиви</span>
+                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'motives-2' ? "text-red-500" : "text-zinc-500")} />
+                        </button>
                       </div>
                       <span className="text-white">15%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full bg-zinc-500 w-[15%]" />
                     </div>
+                    <AnimatePresence>
+                      {activeTooltip === 'motives-2' && (
+                        <motion.p 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="text-[10px] sm:text-sm text-red-400/90 mt-2 leading-relaxed font-medium bg-red-500/5 p-2 rounded-lg border border-red-500/10"
+                        >
+                          Дори при най-трудни обстоятелства, силните мотиви са това, което ни движи напред.
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="pt-6 sm:pt-8 border-t border-white/10">
-              <div className="mb-8 sm:mb-12">
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tighter text-white mb-3 flex items-center gap-3">
-                  <Heart className="text-brand w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.5} />
+              <div className="mb-6 sm:mb-12">
+                <h3 className="text-lg sm:text-2xl font-bold tracking-tighter text-white mb-2 flex items-center gap-2">
+                  <Heart className="text-brand w-4 h-4 sm:w-6 sm:h-6" strokeWidth={1.5} />
                   Християнски ценности
                 </h3>
-                <p className="text-zinc-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-                  Това не са просто думи, които стоят тук за украса. Това са принципите, от които се ръководя чрез вярата си и които се старая да прилагам в ежедневието си – в училище, в отношенията и в моментите, когато никой не ме гледа. Те са моят морален компас.
+                <p className="text-zinc-400 text-xs sm:text-base max-w-2xl leading-relaxed">
+                  Принципите, от които се ръководя чрез вярата си и които прилагам в училище и в отношенията си.
                 </p>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-10">
                 {christianValues.map((val, idx) => {
                   const isExpanded = expandedValue === idx;
                   return (
@@ -497,18 +536,18 @@ export default function Home() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: idx * 0.05 }}
-                      className="flex flex-col bg-[#0a1612]/40 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-brand/20 transition-all duration-300"
+                      className="flex flex-col bg-[#0a1612]/40 p-3 sm:p-4 rounded-xl border border-brand/10 transition-all duration-300"
                     >
-                      <div className="flex items-center justify-between gap-2 sm:gap-3">
-                        <div className="flex items-start gap-2 sm:gap-3">
-                          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-brand shrink-0 mt-2" />
-                          <span className="text-zinc-300 text-[13px] sm:text-base font-medium leading-tight">{val.title}</span>
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-start gap-2">
+                          <div className="w-1 h-1 rounded-full bg-brand shrink-0 mt-1.5" />
+                          <span className="text-zinc-300 text-[12px] sm:text-base font-medium leading-tight">{val.title}</span>
                         </div>
                         <button 
                           onClick={() => setExpandedValue(isExpanded ? null : idx)}
                           className="p-1 rounded-lg hover:bg-white/5 text-zinc-500 hover:text-brand transition-colors shrink-0"
                         >
-                          <Info className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          <Info className="w-3 h-3 sm:w-4 sm:h-4" />
                         </button>
                       </div>
                       <AnimatePresence>
@@ -519,7 +558,7 @@ export default function Home() {
                             exit={{ height: 0, opacity: 0 }}
                             className="overflow-hidden"
                           >
-                            <p className="pt-2 sm:pt-3 text-[11px] sm:text-xs text-zinc-400 leading-relaxed italic border-t border-white/5 mt-2 sm:mt-3">
+                            <p className="pt-2 text-[10px] sm:text-xs text-zinc-400 leading-relaxed italic border-t border-white/5 mt-2">
                               <span className="text-brand not-italic font-medium mr-1">Пример:</span>
                               {val.example}
                             </p>
@@ -534,6 +573,8 @@ export default function Home() {
           </div>
         </motion.div>
       </motion.section>
+
+
 
       {/* Timeline Section */}
       <motion.section 
@@ -606,10 +647,11 @@ export default function Home() {
         </div>
       </motion.section>
 
+
       {/* Focus Section (Skills) */}
       <motion.section 
         id="skills" 
-        className="scroll-mt-32 space-y-12 sm:space-y-16 pt-12 sm:pt-32 px-4 sm:px-0"
+        className="scroll-mt-32 space-y-10 sm:space-y-16 pt-12 sm:pt-32 px-4 sm:px-0"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
@@ -619,12 +661,12 @@ export default function Home() {
           <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">
             Върху какво съм фокусиран
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-xs sm:text-base">
+          <p className="text-zinc-400 max-w-2xl mx-auto text-[10px] sm:text-base px-4">
             Развивам умения, които ми помагат да превърна всяка идея в реалност и да бъда по-полезен за обществото.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {skills.map((skill, idx) => (
             <motion.div
               key={idx}
@@ -633,35 +675,35 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               onMouseMove={handleMouseMove}
-              className="group relative p-8 rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/10 hover:border-brand/40 transition-all duration-500 overflow-hidden before:absolute before:inset-0 before:bg-[radial-gradient(800px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(0,229,153,0.06),transparent_40%)] before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500"
+              className="group relative p-3 sm:p-8 rounded-[1.2rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/10 hover:border-brand/40 transition-all duration-500 overflow-hidden before:absolute before:inset-0 before:bg-[radial-gradient(800px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(0,229,153,0.06),transparent_40%)] before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500"
               whileTap={{ scale: 0.98 }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-brand/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10 space-y-6">
-                <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 group-hover:bg-brand group-hover:text-black group-hover:shadow-[0_0_20px_rgba(0,229,153,0.3)] transition-all duration-500">
-                  <skill.Icon size={28} strokeWidth={1.5} />
+              <div className="relative z-10 space-y-2 sm:space-y-6">
+                <div className="w-7 h-7 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 group-hover:bg-brand group-hover:text-black group-hover:shadow-[0_0_20px_rgba(0,229,153,0.3)] transition-all duration-500">
+                  <skill.Icon size={windowWidth < 640 ? 14 : 28} strokeWidth={1.5} />
                 </div>
                 
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-brand transition-colors">
+                <div className="space-y-1 sm:space-y-3">
+                  <h3 className="text-base sm:text-2xl font-bold tracking-tight text-white group-hover:text-brand transition-colors leading-tight">
                     {skill.title}
                   </h3>
-                  <p className="text-zinc-400 leading-relaxed text-base sm:text-lg">
+                  <p className="text-zinc-400 leading-relaxed text-xs sm:text-base lg:text-lg">
                     {skill.desc}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {skill.subSkills.map((sub, sIdx) => (
-                    <span key={sIdx} className="px-3 py-1 rounded-full bg-white/5 text-zinc-400 text-[10px] uppercase tracking-wider font-semibold border border-white/10 group-hover:border-brand/30 group-hover:text-zinc-200 transition-colors">
+                    <span key={sIdx} className="px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/5 text-zinc-400 text-[8px] sm:text-[10px] uppercase tracking-wider font-bold border border-white/10 group-hover:border-brand/30 group-hover:text-zinc-200 transition-colors">
                       {sub}
                     </span>
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-white/5">
-                  <p className="text-sm italic text-zinc-500 leading-relaxed">
+                <div className="pt-2 sm:pt-4 border-t border-white/5">
+                  <p className="text-[9px] sm:text-sm italic text-zinc-500 leading-relaxed">
                     <span className="text-brand not-italic font-medium mr-1">Пример:</span>
                     {skill.example}
                   </p>
@@ -698,8 +740,8 @@ export default function Home() {
             >
               <div className="absolute inset-0 rounded-full bg-brand/20 blur-2xl opacity-0 group-hover/hub:opacity-100 transition-opacity duration-500" />
               <div className="text-center relative z-10">
-                <span className="block text-[7px] sm:text-[10px] uppercase tracking-[0.3em] text-brand font-bold mb-1">Progress</span>
-                <span className="block text-lg sm:text-3xl font-bold text-white tracking-tighter">2026</span>
+                <span className="block text-[7px] sm:text-[10px] uppercase tracking-[0.3em] text-brand font-bold mb-1">Растеж</span>
+                <span className="block text-lg sm:text-3xl font-bold text-white tracking-tighter">Пътят</span>
               </div>
             </motion.div>
 
@@ -766,9 +808,7 @@ export default function Home() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="space-y-3 sm:space-y-4 text-center">
-          <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white flex items-center justify-center gap-3">
-            Моята първа реч
-          </h2>
+          <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">Моята първа реч</h2>
           <p className="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-lg">Стъпката извън зоната на комфорт и силата да заявиш себе си пред другите.</p>
         </div>
  
@@ -785,7 +825,7 @@ export default function Home() {
               <motion.img 
                 src="https://drive.google.com/thumbnail?id=11L0VHplxg4OQwY1kC2oEswBmlGiL5-Ud&sz=w1000" 
                 alt="Моята първа реч" 
-                className="absolute inset-0 w-full h-full object-cover object-[54%_25%] group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-cover object-[54%_25%] transition-transform duration-700"
                 whileInView={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 onError={(e) => {
@@ -793,101 +833,90 @@ export default function Home() {
                 }}
               />
               <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8 z-20 flex justify-between items-end">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  <p className="text-[10px] font-medium text-zinc-400 uppercase tracking-widest mb-1 sm:mb-2">Презентация</p>
-                  <p className="text-white font-medium text-lg sm:text-2xl tracking-tight">Споделяне на лични ценности</p>
-                </motion.div>
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-medium border border-border backdrop-blur-md"
-                >
+                <div>
+                  <p className="text-[10px] font-medium text-zinc-400 uppercase tracking-widest mb-1 sm:mb-2 text-left">Презентация</p>
+                  <p className="text-white font-medium text-lg sm:text-2xl tracking-tight text-left">Споделяне на лични ценности</p>
+                </div>
+                <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-medium border border-border backdrop-blur-md">
                   <Calendar size={16} />
-                  26 Февруари 2026
-                </motion.div>
+                  26 Февруари
+                </div>
               </div>
             </motion.div>
 
             <div className="space-y-6 sm:space-y-8 max-w-3xl mx-auto">
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex sm:hidden items-center gap-2 px-4 py-2 rounded-full bg-brand/10 text-brand text-xs font-medium border border-border w-fit mx-auto"
-              >
-                <Calendar size={14} />
-                26 Февруари 2026
-              </motion.div>
-              
-              <motion.h3 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-2xl sm:text-4xl font-bold tracking-tighter text-white leading-tight text-center"
-              >
+              <h3 className="text-2xl sm:text-4xl font-bold tracking-tighter text-white leading-tight text-center">
                 Да говоря за това, което ме изгражда
-              </motion.h3>
+              </h3>
               
               <div className="space-y-4 sm:space-y-6 text-zinc-400 leading-relaxed text-base sm:text-lg">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят – <strong className="text-brand font-medium">моята вяра в Бог</strong>.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                  Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:
-                </motion.p>
-                <motion.blockquote 
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  className="border-l-2 border-brand pl-4 sm:pl-6 py-2 text-white italic bg-brand/5 rounded-r-xl sm:rounded-r-2xl font-medium text-lg sm:text-xl"
-                >
+                <p>Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят – <span className="text-brand font-medium">моята вяра в Бог</span>.</p>
+                <p>Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:</p>
+                <blockquote className="border-l-2 border-brand pl-4 sm:pl-6 py-2 text-white italic bg-brand/5 rounded-r-xl sm:rounded-r-2xl font-medium text-lg sm:text-xl">
                   "Не се срамувайте от Човешкия Син, защото и Той ще се срамува от вас"
-                </motion.blockquote>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                >
-                  Това преобърна нагласата ми. Осъзнах, че страхът е илюзия. Когато говориш искрено за ценностите си, преодоляваш собствените си бариери и печелиш уважението на хората, които наистина имат значение.
-                </motion.p>
+                </blockquote>
+                <p>Това преобърна нагласата ми. Осъзнах, че страхът е илюзия. Когато говориш искрено за ценностите си, преодоляваш собствените си бариери и печелиш уважението на хората, които наистина имат значение.</p>
               </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-                className="p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/60 border border-brand/20"
-              >
+              <div className="p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/60 border border-brand/20">
                 <h4 className="text-brand font-medium mb-2 sm:mb-3 flex items-center gap-2 text-lg sm:text-xl">
                   <Lightbulb size={20} className="text-brand" />
                   Основен урок
                 </h4>
                 <p className="text-zinc-400 leading-relaxed text-base sm:text-lg">
-                  Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече – <strong className="text-white font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</strong>
+                  Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече – <span className="text-white font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</span>
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Projects in Action Section */}
+      <motion.section 
+        id="projects" 
+        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-12 sm:pt-32 px-4 sm:px-0"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="space-y-3 sm:space-y-4 text-center">
+          <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">Проекти в действие</h2>
+          <p className="text-zinc-400 max-w-lg mx-auto text-sm sm:text-lg">Технологии в полза на хората.</p>
+        </div>
+
+        <div className="p-8 sm:p-20 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.1),transparent_70%)] animate-pulse" />
+          
+          <div className="relative z-10 flex flex-col items-center text-center space-y-8 sm:space-y-12">
+            <motion.div
+              animate={{ 
+                rotate: [0, 5, -5, 0],
+                scale: [1, 1.1, 1],
+                y: [0, -10, 0]
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="text-brand drop-shadow-[0_0_30px_rgba(0,229,153,0.5)]"
+            >
+              <HelpCircle size={80} className="sm:size-[120px]" strokeWidth={1} />
+            </motion.div>
+            
+            <div className="space-y-4 sm:space-y-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="inline-block"
+              >
+                <div className="px-6 py-2 sm:px-10 sm:py-3 bg-brand text-black rounded-full font-black tracking-[0.3em] uppercase text-xs sm:text-lg shadow-[0_0_40px_rgba(0,229,153,0.6)] animate-bounce">
+                  Очаквайте скоро
+                </div>
               </motion.div>
+              
+              <h3 className="text-2xl sm:text-5xl font-bold tracking-tighter text-white max-w-2xl leading-tight">
+                Първите проекти ще бъдат споделени тук съвсем скоро.
+              </h3>
             </div>
           </div>
         </div>

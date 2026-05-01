@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
   { name: 'Начало', path: '#home' },
+  { name: 'Защо?', path: '#why' },
   { name: 'Пътят ми', path: '#timeline' },
   { name: 'Мисия', path: '#mission' },
   { name: 'Фокус', path: '#skills' },
+  { name: 'Проекти', path: '#projects' },
   { name: 'Речи', path: '#speech' },
   { name: 'Контакти', path: '#contact' },
 ];
@@ -33,20 +35,27 @@ export default function Navbar({ onNavClick }: NavbarProps) {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      
-      const sections = navLinks.map(link => link.path.substring(1));
-      const scrollPosition = window.scrollY + 100;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          
+          const sections = navLinks.map(link => link.path.substring(1));
+          const scrollPosition = window.scrollY + 120; // Increased offset for better accuracy
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(`#${section}`);
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(`#${section}`);
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -142,15 +151,15 @@ export default function Navbar({ onNavClick }: NavbarProps) {
         <div className="flex items-center gap-4 sm:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-full text-brand bg-surface/80 backdrop-blur-xl border border-border hover:bg-surface-hover transition-colors z-50 relative"
+            className="p-3 rounded-full text-brand bg-surface/80 backdrop-blur-xl border border-border hover:bg-surface-hover transition-colors z-[100] relative"
             aria-label="Toggle menu"
           >
             <motion.div
               initial={false}
-              animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
-              transition={{ duration: 0.2 }}
+              animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.div>
           </button>
         </div>
@@ -158,110 +167,85 @@ export default function Navbar({ onNavClick }: NavbarProps) {
         <div className="hidden sm:flex items-center">
           {/* Phone removed */}
         </div>
+      </div>
 
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 sm:hidden"
-              />
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 30, stiffness: 300 }}
-                className="fixed inset-0 bg-[#010a08] z-50 sm:hidden flex flex-col p-6 pt-24 overflow-hidden"
-              >
-                {/* Background Accents */}
-                <motion.div 
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1],
-                    x: [0, 20, 0],
-                    y: [0, -20, 0]
-                  }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none" 
-                />
-                <motion.div 
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.05, 0.1, 0.05],
-                    x: [0, -30, 0],
-                    y: [0, 30, 0]
-                  }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-[-10%] left-[-10%] w-64 h-64 bg-brand/5 blur-[100px] rounded-full pointer-events-none" 
-                />
-
-                <div className="absolute top-6 right-6">
-                  <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-3 rounded-full text-brand bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[80] sm:hidden"
+          >
+            {/* Overlay */}
+            <div 
+              className="absolute inset-0 bg-[#020806]/95 backdrop-blur-xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Content */}
+            <motion.div
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -50, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="relative w-full h-[100dvh] flex flex-col justify-center px-8"
+            >
+              <div className="flex flex-col gap-4">
+                {navLinks.map((link, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={link.path}
+                    onClick={(e) => handleNavClick(e, link.path)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + idx * 0.05 }}
+                    className={cn(
+                      "text-4xl font-black tracking-tighter uppercase transition-all duration-300 flex items-center justify-between group",
+                      activeSection === link.path 
+                        ? "text-brand" 
+                        : "text-white/40 hover:text-white"
+                    )}
                   >
-                    <X size={24} />
-                  </button>
-                </div>
-                
-                <div className="flex flex-col gap-1 mt-4">
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-[0.3em] font-bold mb-6 ml-2">Навигация</p>
-                  {navLinks.map((link, idx) => (
-                    <motion.a
-                      key={link.path}
-                      href={link.path}
-                      onClick={(e) => handleNavClick(e, link.path)}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.08 + 0.1 }}
+                    <span>{link.name}</span>
+                    <ArrowRight 
+                      size={28} 
                       className={cn(
-                        "text-3xl font-bold transition-all duration-300 py-3.5 px-4 rounded-2xl flex items-center justify-between group relative overflow-hidden",
-                        activeSection === link.path 
-                          ? "text-black" 
-                          : "text-zinc-400 hover:text-white"
-                      )}
+                        "transition-all duration-300",
+                        activeSection === link.path ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                      )} 
+                    />
+                  </motion.a>
+                ))}
+              </div>
+
+              <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
+                <div className="space-y-1">
+                  <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-black">Координати</p>
+                  <p className="text-white font-medium">preskokisiov@gmail.com</p>
+                </div>
+                <div className="flex gap-4">
+                  {[
+                    { Icon: Instagram, href: "https://www.instagram.com/p.kisyovv/?hl=en" },
+                    { Icon: Linkedin, href: "https://www.linkedin.com/in/presian-kisyov/" }
+                  ].map((social, i) => (
+                    <a 
+                      key={i}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-white/5 text-zinc-400 hover:text-brand border border-white/5"
                     >
-                      {activeSection === link.path && (
-                        <motion.div
-                          layoutId="mobile-nav-active"
-                          className="absolute inset-0 bg-brand -z-10"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                      <span className="relative z-10">{link.name}</span>
-                      <ArrowRight 
-                        size={24} 
-                        className={cn(
-                          "transition-all duration-300 relative z-10",
-                          activeSection === link.path ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"
-                        )} 
-                      />
-                    </motion.a>
+                      <social.Icon size={20} />
+                    </a>
                   ))}
                 </div>
-
-                <div className="mt-auto pt-8 border-t border-white/10 relative z-10">
-                  <p className="text-zinc-500 text-[10px] mb-4 ml-2 uppercase tracking-[0.2em] font-bold">Свържете се с мен</p>
-                  <div className="flex gap-3">
-                    <a href="https://www.instagram.com/p.kisyovv/?hl=en" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
-                      <Instagram size={22} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/presian-kisyov/" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
-                      <Linkedin size={22} />
-                    </a>
-                    <a href="mailto:preskokisiov@gmail.com" className="flex-1 flex items-center justify-center py-4 rounded-2xl bg-white/5 text-zinc-400 hover:text-brand hover:bg-white/10 transition-all border border-white/5">
-                      <Mail size={22} />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
-      </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
