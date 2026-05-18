@@ -357,6 +357,23 @@ export default function Home() {
               >
                 Крайната ми цел е да помагам на хората, които нямат тези покрити базови нужди и да им дам възможност и те да преследват мечтите си, както ние можем.
               </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="pt-6 mt-6 border-t border-brand/10"
+              >
+                <p className="text-white font-medium mb-4 flex items-center gap-2">
+                  <Compass className="text-brand w-5 h-5" />
+                  Ако мога да бъда максимално конкретен:
+                </p>
+                <p className="text-zinc-400 italic bg-brand/5 p-6 rounded-2xl border border-brand/10 space-y-4">
+                  <span className="block">„Искам да помагам на хора в нужда, за да могат и те да живеят и да бъдат щастливи като всички нас. Вярвам, че трябва да спрем да даваме парите си на вятъра за моментни изкуствени стимули — дискотеки, скъпи дрехи, бижута и всякакви други безсмислени глупости, с които се опитваме просто да привлечем вниманието на другите.“</span>
+                  <span className="block text-brand/90 not-italic font-medium">Повярвайте ми, ще привлечете много повече вниманието на сегашното поколение като дарявате на тези, които наистина се нуждаят, отколкото ако си вземете най-новия iPhone или новата чанта на Chanel. Нека започнем да си пълним душите по истински начин, като помагаме.</span>
+                </p>
+              </motion.div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 py-2">
