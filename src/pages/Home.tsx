@@ -542,6 +542,9 @@ export default function Home() {
                 <p className="text-zinc-400 text-xs sm:text-base max-w-2xl leading-relaxed">
                   Принципите, от които се ръководя чрез вярата си и които прилагам в училище и в отношенията си.
                 </p>
+                <p className="mt-4 text-zinc-500 text-xs sm:text-sm italic border-l border-brand/30 pl-4">
+                  „Опитвам се да спазвам всички тези неща, за да бъда колкото се може по-добър, но както всички и аз доста често греша.“
+                </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-10">
                 {christianValues.map((val, idx) => {
