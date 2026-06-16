@@ -903,40 +903,49 @@ export default function Home() {
       >
         <div className="space-y-3 sm:space-y-4 text-center">
           <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">Проекти в действие</h2>
-          <p className="text-zinc-400 max-w-lg mx-auto text-sm sm:text-lg">Технологии в полза на хората.</p>
         </div>
 
-        <div className="p-8 sm:p-20 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.1),transparent_70%)] animate-pulse" />
+        <div className="p-8 sm:p-16 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden flex flex-col items-center text-center">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.08),transparent_70%)]" />
           
-          <div className="relative z-10 flex flex-col items-center text-center space-y-8 sm:space-y-12">
-            <motion.div
-              animate={{ 
-                rotate: [0, 5, -5, 0],
-                scale: [1, 1.1, 1],
-                y: [0, -10, 0]
-              }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="text-brand drop-shadow-[0_0_30px_rgba(0,229,153,0.5)]"
+          <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-6 sm:space-y-10">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-5 py-2 bg-brand/20 text-brand text-xs sm:text-sm font-black uppercase tracking-[0.2em] rounded-full border border-brand/40 shadow-[0_0_20px_rgba(0,229,153,0.3)]"
             >
-              <HelpCircle size={80} className="sm:size-[120px]" strokeWidth={1} />
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand shadow-[0_0_8px_rgba(0,229,153,0.8)]"></span>
+              </span>
+              Проект в процес
             </motion.div>
             
-            <div className="space-y-4 sm:space-y-6">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-block"
+            <h3 className="text-6xl sm:text-8xl font-black tracking-tighter text-brand drop-shadow-[0_0_30px_rgba(0,229,153,0.3)]">
+              СПАСЕН
+            </h3>
+            
+            <p className="text-2xl sm:text-4xl text-white font-medium italic leading-tight max-w-3xl">
+              „Тези 30 цента няма да променят <span className="text-brand">твоя</span> живот. Но ще променят <span className="text-brand">нечий друг</span>.“
+            </p>
+            
+            <p className="text-zinc-400 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto">
+              Социална инициатива, която поставя кутии за дарения и променя начина, по който младото поколение мисли за парите.
+            </p>
+            
+            <div className="pt-6 sm:pt-8 flex flex-col items-center gap-4">
+              <a 
+                href="https://spasen.netlify.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center gap-3 bg-brand text-[#0a1612] font-black px-8 py-5 rounded-full hover:bg-white hover:text-[#0a1612] transition-colors text-lg sm:text-xl shadow-[0_0_40px_rgba(0,229,153,0.3)] group"
               >
-                <div className="px-6 py-2 sm:px-10 sm:py-3 bg-brand text-black rounded-full font-black tracking-[0.3em] uppercase text-xs sm:text-lg shadow-[0_0_40px_rgba(0,229,153,0.6)] animate-bounce">
-                  Очаквайте скоро
-                </div>
-              </motion.div>
-              
-              <h3 className="text-2xl sm:text-5xl font-bold tracking-tighter text-white max-w-2xl leading-tight">
-                Първите проекти ще бъдат споделени тук съвсем скоро.
-              </h3>
+                Виж СПАСЕН <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <p className="text-zinc-500 text-xs sm:text-sm font-medium uppercase tracking-widest">
+                Отделен проект на spasen.bg
+              </p>
             </div>
           </div>
         </div>
