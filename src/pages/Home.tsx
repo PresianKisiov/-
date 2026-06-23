@@ -935,15 +935,12 @@ export default function Home() {
             </p>
             
             <div className="pt-6 sm:pt-8 flex flex-col items-center gap-4">
-              <a 
-                href="https://spasen.netlify.app" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center gap-3 bg-brand text-[#0a1612] font-black px-8 py-5 rounded-full hover:bg-white hover:text-[#0a1612] transition-colors text-lg sm:text-xl shadow-[0_0_40px_rgba(0,229,153,0.3)] group"
+              <div 
+                className="inline-flex items-center justify-center gap-3 bg-white/5 text-zinc-400 font-bold px-8 py-4 rounded-full border border-white/10 text-base sm:text-lg cursor-not-allowed"
               >
-                Виж СПАСЕН <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <p className="text-zinc-500 text-xs sm:text-sm font-medium uppercase tracking-widest">
+                В процес на разработка
+              </div>
+              <p className="text-zinc-500 text-xs sm:text-sm font-medium uppercase tracking-widest mt-2">
                 Отделен проект на spasen.bg
               </p>
             </div>
