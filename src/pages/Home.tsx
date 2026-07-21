@@ -176,7 +176,7 @@ export default function Home() {
       >
         <div className="space-y-4 sm:space-y-10 text-center mb-8 sm:mb-16">
           <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">
-            Моята Мисия & СПАСЕН
+            SPASEN
           </h2>
           <motion.p 
             className="text-lg sm:text-4xl lg:text-5xl text-brand font-sans font-light italic tracking-tight"
@@ -461,25 +461,25 @@ export default function Home() {
                   <p className="text-white text-base sm:text-xl">Ако четеш това на телефон, на топло, с вода на две крачки, ти си от <span className="text-brand font-bold underline decoration-brand/30 underline-offset-4">първата колона</span>. Няма как да не си.</p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start pt-4">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand">
-                        <Target size={24} />
-                      </div>
-                      <h4 className="text-white font-bold text-xl sm:text-2xl">100% нужди = 100% мотиви</h4>
+                <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand">
+                      <Target size={24} />
                     </div>
-                    <p className="text-sm sm:text-base">Когато нуждите ти са покрити 100%, ти имаш 100% от мотивите си свободни. Можеш да мислиш за бъдещето. Да учиш. Да мечтаеш. Умът ти е свободен да гради, защото не е зает да оцелява.</p>
+                    <h4 className="text-white font-bold text-xl sm:text-2xl">100% нужди = 100% мотиви</h4>
                   </div>
                   
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 border border-white/10">
-                        <HelpCircle size={24} />
-                      </div>
-                      <h4 className="text-white font-bold text-xl sm:text-2xl">30% нужди = 30% мотиви</h4>
+                  <div className="space-y-6 text-sm sm:text-base leading-relaxed">
+                    <p className="text-zinc-300">
+                      Когато нуждите ти са покрити 100%, ти имаш 100% от мотивите си свободни. Можеш да мислиш за бъдещето. Да учиш. Да мечтаеш. Умът ти е свободен да гради, защото не е зает да оцелява.
+                    </p>
+                    
+                    <div className="pl-6 border-l-2 border-brand/30 space-y-4">
+                      <h5 className="text-white font-medium text-lg">А когато са покрити само 30%?</h5>
+                      <p className="text-zinc-400">
+                        Тогава мотивите ти са същите 30%. Не защото си по-малко способен. Цялата ти енергия отива в едно: как да се справиш с проблема. Няма място за мечти и развитие, а за оцеляване. Липсва им пространство.
+                      </p>
                     </div>
-                    <p className="text-sm sm:text-base">Не защото си по-малко способен. Цялата ти енергия отива в едно: как да се справиш с проблема. Няма място за мечти и развитие, а за оцеляване. Липсва им пространство.</p>
                   </div>
                 </div>
 
@@ -613,37 +613,63 @@ export default function Home() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-3 sm:space-y-4 text-center">
-          <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">Речи</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-lg">Моите изяви и споделяне пред публика.</p>
+        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-brand/10 text-brand border border-brand/20 mb-2">
+            <Mic size={16} />
+            <span className="text-xs sm:text-sm font-black uppercase tracking-widest">Публични изяви</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tighter text-white">Речи и споделяне</h2>
+          <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed">
+            Вярвам, че истинското въздействие се случва, когато споделиш пътя си. Тук са моментите, в които застанах пред публика, за да предам това, в което вярвам.
+          </p>
         </div>
 
+        <AnimatePresence mode="wait">
         {!showSpeeches ? (
-          <motion.button
-            onClick={() => setShowSpeeches(true)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-6 inline-flex items-center justify-center rounded-full text-sm font-medium transition-all bg-brand text-[#0a1612] hover:bg-white h-12 px-8 shadow-[0_0_15px_rgba(0,229,153,0.3)] uppercase tracking-wider font-black w-full sm:w-auto"
+          <motion.div
+            key="show-btn"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="w-full flex justify-center pt-4"
           >
-            Покажи повече
-          </motion.button>
+            <motion.button
+              onClick={() => setShowSpeeches(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 rounded-full text-sm sm:text-base font-black transition-all bg-brand text-[#0a1612] hover:bg-white h-14 px-10 shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_30px_rgba(0,229,153,0.5)] uppercase tracking-wider w-full sm:w-auto"
+            >
+              Отключи речите
+              <ArrowRight size={20} />
+            </motion.button>
+          </motion.div>
         ) : (
-          <div className="w-full space-y-12">
-            <div className="space-y-3 sm:space-y-4 text-center">
-              <h3 className="text-xl sm:text-3xl font-bold tracking-tighter text-white mt-12">Първа реч</h3>
-              <p className="text-zinc-400 max-w-2xl mx-auto text-sm sm:text-lg">Стъпката извън зоната на комфорт и силата да заявиш себе си пред другите.</p>
+          <motion.div 
+            key="speech-content"
+            initial={{ opacity: 0, height: 0, y: 40 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -40 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full space-y-12 overflow-hidden"
+          >
+            <div className="space-y-4 text-center pt-8">
+              <h3 className="text-2xl sm:text-4xl font-black tracking-tighter text-white">Първа реч</h3>
+              <p className="text-brand font-medium text-sm sm:text-lg">Стъпката извън зоната на комфорт и силата да заявиш себе си.</p>
             </div>
             
-            <div className="relative p-5 sm:p-10 rounded-[1.5rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/20 overflow-hidden">
-              <div className="flex flex-col gap-6 sm:gap-10 relative z-10">
+            <div className="relative p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-[#0a1612]/60 border border-brand/20 overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.05)]">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 blur-[100px] rounded-full pointer-events-none" />
+              
+              <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 relative z-10">
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full h-[250px] sm:h-[500px] rounded-xl sm:rounded-3xl overflow-hidden border border-brand/20 group"
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative w-full lg:w-5/12 h-[300px] sm:h-[450px] rounded-2xl sm:rounded-[2rem] overflow-hidden border border-brand/20 group shrink-0"
                 >
-                  <div className="absolute inset-0 bg-black/50 z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020806] via-black/40 to-transparent z-10" />
                   <motion.img 
                     src="https://drive.google.com/thumbnail?id=11L0VHplxg4OQwY1kC2oEswBmlGiL5-Ud&sz=w1000" 
                     alt="Моята първа реч" 
@@ -654,46 +680,51 @@ export default function Home() {
                       (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1475721025505-c0a0b978438c?q=80&w=1000&auto=format&fit=crop';
                     }}
                   />
-                  <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8 z-20 flex justify-between items-end">
-                    <div>
-                      <p className="text-[10px] font-medium text-zinc-400 uppercase tracking-widest mb-1 sm:mb-2 text-left">Презентация</p>
-                      <p className="text-white font-medium text-lg sm:text-2xl tracking-tight text-left">Споделяне на лични ценности</p>
-                    </div>
-                    <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-medium border border-border backdrop-blur-md">
-                      <Calendar size={16} />
+                  <div className="absolute bottom-6 left-6 right-6 z-20">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/20 text-brand text-xs font-black uppercase tracking-widest border border-brand/30 backdrop-blur-md mb-4">
+                      <Calendar size={14} />
                       26 Февруари
                     </div>
+                    <p className="text-white font-bold text-xl sm:text-2xl leading-tight">Споделяне на лични ценности</p>
                   </div>
                 </motion.div>
 
-                <div className="space-y-6 sm:space-y-8 max-w-3xl mx-auto">
-                  <h3 className="text-2xl sm:text-4xl font-bold tracking-tighter text-white leading-tight text-center">
-                    Да говоря за това, което ме изгражда
-                  </h3>
-                  
-                  <div className="space-y-4 sm:space-y-6 text-zinc-400 leading-relaxed text-base sm:text-lg">
-                    <p>Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят – <span className="text-brand font-medium">моята вяра в Бог</span>.</p>
-                    <p>Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:</p>
-                    <blockquote className="border-l-2 border-brand pl-4 sm:pl-6 py-2 text-white italic bg-brand/5 rounded-r-xl sm:rounded-r-2xl font-medium text-lg sm:text-xl">
-                      "Не се срамувайте от Човешкия Син, защото и Той ще се срамува от вас"
-                    </blockquote>
-                    <p>Това преобърна нагласата ми. Осъзнах, че страхът е илюзия. Когато говориш искрено за ценностите си, преодоляваш собствените си бариери и печелиш уважението на хората, които наистина имат значение.</p>
+                <div className="flex-1 space-y-8 sm:space-y-10 flex flex-col justify-center">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl sm:text-4xl font-black tracking-tighter text-white leading-tight">
+                      Да говоря за това, което ме изгражда
+                    </h3>
+                    <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
+                      Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят – <span className="text-brand font-bold">моята вяра в Бог</span>. Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:
+                    </p>
                   </div>
 
-                  <div className="p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/60 border border-brand/20">
-                    <h4 className="text-brand font-medium mb-2 sm:mb-3 flex items-center gap-2 text-lg sm:text-xl">
+                  <blockquote className="relative p-6 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl">
+                    <div className="absolute top-4 left-4 text-brand/20 text-6xl font-serif leading-none">"</div>
+                    <p className="relative z-10 text-white font-medium text-lg sm:text-xl italic pl-6">
+                      Не се срамувайте от Човешкия Син, защото и Той ще се срамува от вас
+                    </p>
+                  </blockquote>
+
+                  <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
+                    Това преобърна нагласата ми. Осъзнах, че страхът е илюзия. Когато говориш искрено за ценностите си, преодоляваш собствените си бариери и печелиш уважението на хората, които наистина имат значение.
+                  </p>
+
+                  <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#020806] border border-white/5 relative overflow-hidden group">
+                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-brand" />
+                    <h4 className="text-white font-bold mb-3 flex items-center gap-2 text-lg sm:text-xl">
                       <Lightbulb size={20} className="text-brand" />
                       Основен урок
                     </h4>
-                    <p className="text-zinc-400 leading-relaxed text-base sm:text-lg">
-                      Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече – <span className="text-white font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</span>
+                    <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
+                      Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече – <span className="text-brand font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</span>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-center pt-8 w-full">
+            <div className="flex justify-center pt-4 w-full">
               <motion.button
                 onClick={() => {
                   setShowSpeeches(false);
@@ -701,13 +732,14 @@ export default function Home() {
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center rounded-full text-sm font-medium transition-all bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white h-12 px-10 border border-white/10 uppercase tracking-widest font-black backdrop-blur-sm w-full sm:w-auto"
+                className="inline-flex items-center justify-center rounded-full text-xs sm:text-sm font-bold transition-all bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white h-12 px-8 border border-white/10 uppercase tracking-widest w-full sm:w-auto"
               >
-                Скрий речи
+                Скрий речите
               </motion.button>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </motion.section>
 
 
