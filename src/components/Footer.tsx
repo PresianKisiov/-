@@ -5,9 +5,6 @@ export default function Footer() {
     <footer className="py-12 mt-auto border-t border-[#10b981]/20 flex flex-col items-center gap-6 text-sm text-zinc-500 relative z-10">
       <div className="text-center space-y-2">
         <p>© {new Date().getFullYear()} Преско. Всички права запазени.</p>
-        <p className="text-zinc-600 max-w-md italic">
-          Този сайт е създаден, за да следя собствения си прогрес и да споделям пътя си към усъвършенстване.
-        </p>
       </div>
       
       <div className="flex items-center gap-6">

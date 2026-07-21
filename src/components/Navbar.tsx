@@ -5,11 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
   { name: 'Начало', path: '#home' },
-  { name: 'Защо?', path: '#why' },
-  { name: 'Пътят ми', path: '#timeline' },
-  { name: 'Мисия', path: '#mission' },
-  { name: 'Фокус', path: '#skills' },
-  { name: 'Проекти', path: '#projects' },
+  { name: 'Мисия & СПАСЕН', path: '#mission' },
   { name: 'Речи', path: '#speech' },
   { name: 'Контакти', path: '#contact' },
 ];
@@ -165,7 +161,15 @@ export default function Navbar({ onNavClick }: NavbarProps) {
         </div>
 
         <div className="hidden sm:flex items-center">
-          {/* Phone removed */}
+          <motion.a
+            href="#mission"
+            onClick={(e) => handleNavClick(e, '#mission')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-brand text-[#0a1612] font-black px-6 py-2 rounded-full uppercase tracking-wider text-sm shadow-[0_0_15px_rgba(0,229,153,0.3)] hover:shadow-[0_0_25px_rgba(0,229,153,0.5)] hover:bg-white transition-all"
+          >
+            SPASEN
+          </motion.a>
         </div>
       </div>
 
@@ -219,6 +223,17 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                   </motion.a>
                 ))}
               </div>
+
+              <motion.a
+                href="#mission"
+                onClick={(e) => handleNavClick(e, '#mission')}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-8 bg-brand text-[#0a1612] font-black py-4 rounded-full uppercase tracking-wider text-xl text-center shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:bg-white transition-all w-full"
+              >
+                SPASEN
+              </motion.a>
 
               <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
                 <div className="space-y-1">
