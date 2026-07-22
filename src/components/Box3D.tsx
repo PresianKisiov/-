@@ -78,15 +78,17 @@ export default function Box3D() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-12 items-center justify-center py-6 sm:py-10 max-w-5xl mx-auto">
+    <div className="flex flex-col lg:flex-row gap-12 items-center justify-center py-6 sm:py-10 max-w-5xl mx-auto w-full">
       
-      {/* 3D Scene viewport container */}
-      <div 
-        className="relative w-full max-w-[340px] sm:max-w-[400px] h-[360px] sm:h-[450px] flex items-center justify-center"
-        style={{ perspective: '1200px' }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      {/* Interactive 3D Box Column */}
+      <div className="flex flex-col items-center gap-10 sm:gap-14 w-full max-w-[340px] sm:max-w-[400px]">
+        {/* 3D Scene viewport container */}
+        <div 
+          className="relative w-full h-[360px] sm:h-[450px] flex items-center justify-center"
+          style={{ perspective: '1200px' }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
         {/* Helper Instructions overlay */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/5 text-[9px] sm:text-[10px] text-zinc-500 pointer-events-none uppercase tracking-widest select-none flex items-center gap-1.5 opacity-70">
           <Sparkles size={10} className="text-brand/80 animate-pulse" />
@@ -375,98 +377,99 @@ export default function Box3D() {
         />
       </div>
 
-      {/* Side Content Panel explaining the 3D Box functionality */}
-      <div className="flex-1 space-y-6 sm:space-y-8 text-left max-w-xl">
-        <div className="space-y-3">
-          <h4 className="text-zinc-500 font-bold uppercase tracking-[0.2em] text-xs">Как работи проектът</h4>
-          <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-            Интерактивна <span className="text-brand">училищна</span> дарителска кутия
-          </h3>
-          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            СПАСЕН не е просто кутия за пари. Тя е мост между традиционното благотворително дело и съвременните технологии. Инсталирана в училищните коридори, тя мотивира децата да бъдат съпричастни по иновативен и ангажиращ начин.
-          </p>
-        </div>
+      {/* Interactive coin slot trigger button placed directly underneath the 3D viewport */}
+      <button
+        onClick={dropCoin}
+        className="w-auto max-w-[260px] h-11 px-6 mt-4 sm:mt-6 flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black rounded-full uppercase tracking-widest text-[10px] sm:text-xs shadow-[0_0_15px_rgba(0,229,153,0.3)] hover:shadow-[0_0_25px_rgba(0,229,153,0.5)] hover:bg-white transition-all active:scale-95"
+      >
+        <Coins size={15} className="animate-bounce" />
+        Пусни виртуална монета
+      </button>
+    </div>
 
-        {/* Dynamic tabs / highlights that link to rotation angles of the 3D box */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
-          <button
-            onClick={() => rotateToFace('front')}
-            className={`p-4 rounded-2xl text-left border transition-all ${
-              activeFace === 'front'
-                ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
-                : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
-            }`}
-          >
-            <div className="flex items-center gap-2 mb-1.5">
-              <Sparkles className={activeFace === 'front' ? 'text-brand' : 'text-zinc-500'} size={16} />
-              <span className="text-xs sm:text-sm font-bold">Училищна кутия</span>
-            </div>
-            <p className="text-[10px] leading-relaxed text-zinc-400">
-              Физическото устройство с дигитален екран в коридора.
-            </p>
-          </button>
+    {/* Side Content Panel explaining the 3D Box functionality */}
+    <div className="flex-1 space-y-6 sm:space-y-8 text-left max-w-xl">
+      <div className="space-y-3">
+        <h4 className="text-zinc-500 font-bold uppercase tracking-[0.2em] text-xs">Как работи проектът</h4>
+        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+          Интерактивна <span className="text-brand">училищна</span> дарителска кутия
+        </h3>
+        <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+          СПАСЕН не е просто кутия за пари. Тя е мост между традиционното благотворително дело и съвременните технологии. Инсталирана в училището, тя мотивира децата да бъдат съпричастни по иновативен и ангажиращ начин.
+        </p>
+      </div>
 
-          <button
-            onClick={() => rotateToFace('right')}
-            className={`p-4 rounded-2xl text-left border transition-all ${
-              activeFace === 'right'
-                ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
-                : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
-            }`}
-          >
-            <div className="flex items-center gap-2 mb-1.5">
-              <Award className={activeFace === 'right' ? 'text-brand' : 'text-zinc-500'} size={16} />
-              <span className="text-xs sm:text-sm font-bold">Класации</span>
-            </div>
-            <p className="text-[10px] leading-relaxed text-zinc-400">
-              Геймифицирана система, награждаваща редовните дарения.
-            </p>
-          </button>
-
-          <button
-            onClick={() => rotateToFace('back')}
-            className={`p-4 rounded-2xl text-left border transition-all ${
-              activeFace === 'back'
-                ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
-                : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
-            }`}
-          >
-            <div className="flex items-center gap-2 mb-1.5">
-              <Coins className={activeFace === 'back' ? 'text-brand' : 'text-zinc-500'} size={16} />
-              <span className="text-xs sm:text-sm font-bold">Прозрачност</span>
-            </div>
-            <p className="text-[10px] leading-relaxed text-zinc-400">
-              Всяка монета отива директно за покриване на медицински разходи.
-            </p>
-          </button>
-
-          <button
-            onClick={() => rotateToFace('left')}
-            className={`p-4 rounded-2xl text-left border transition-all ${
-              activeFace === 'left'
-                ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
-                : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
-            }`}
-          >
-            <div className="flex items-center gap-2 mb-1.5">
-              <Heart className={activeFace === 'left' ? 'text-brand' : 'text-zinc-500'} size={16} />
-              <span className="text-xs sm:text-sm font-bold">Малки жестове</span>
-            </div>
-            <p className="text-[10px] leading-relaxed text-zinc-400">
-              Вдъхновяване на ежедневна емпатия и грижа у младото поколение.
-            </p>
-          </button>
-        </div>
-
-        {/* Interactive coin slot trigger button */}
+      {/* Dynamic tabs / highlights that link to rotation angles of the 3D box */}
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         <button
-          onClick={dropCoin}
-          className="w-full h-12 flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black rounded-full uppercase tracking-widest text-xs sm:text-sm shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_30px_rgba(0,229,153,0.5)] hover:bg-white transition-all"
+          onClick={() => rotateToFace('front')}
+          className={`p-4 rounded-2xl text-left border transition-all ${
+            activeFace === 'front'
+              ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
+              : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
+          }`}
         >
-          <Coins size={18} />
-          Пусни виртуална монета в кутията
+          <div className="flex items-center gap-2 mb-1.5">
+            <Sparkles className={activeFace === 'front' ? 'text-brand' : 'text-zinc-500'} size={16} />
+            <span className="text-xs sm:text-sm font-bold">Училищна кутия</span>
+          </div>
+          <p className="text-[10px] leading-relaxed text-zinc-400">
+            Две физически кутии в стола и лавката на ПМГ „Акад. Иван Гюзелев“.
+          </p>
+        </button>
+
+        <button
+          onClick={() => rotateToFace('right')}
+          className={`p-4 rounded-2xl text-left border transition-all ${
+            activeFace === 'right'
+              ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
+              : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-1.5">
+            <Award className={activeFace === 'right' ? 'text-brand' : 'text-zinc-500'} size={16} />
+            <span className="text-xs sm:text-sm font-bold">Класации</span>
+          </div>
+          <p className="text-[10px] leading-relaxed text-zinc-400">
+            Геймифицирана система, награждаваща редовните дарения.
+          </p>
+        </button>
+
+        <button
+          onClick={() => rotateToFace('back')}
+          className={`p-4 rounded-2xl text-left border transition-all ${
+            activeFace === 'back'
+              ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
+              : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-1.5">
+            <Coins className={activeFace === 'back' ? 'text-brand' : 'text-zinc-500'} size={16} />
+            <span className="text-xs sm:text-sm font-bold">Прозрачност</span>
+          </div>
+          <p className="text-[10px] leading-relaxed text-zinc-400">
+            Всяка монета отива директно за покриване на медицински разходи.
+          </p>
+        </button>
+
+        <button
+          onClick={() => rotateToFace('left')}
+          className={`p-4 rounded-2xl text-left border transition-all ${
+            activeFace === 'left'
+              ? 'bg-brand/10 border-brand text-white shadow-[0_0_15px_rgba(0,229,153,0.1)]'
+              : 'bg-white/5 border-white/5 hover:bg-white/10 text-zinc-400'
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-1.5">
+            <Heart className={activeFace === 'left' ? 'text-brand' : 'text-zinc-500'} size={16} />
+            <span className="text-xs sm:text-sm font-bold">Малки жестове</span>
+          </div>
+          <p className="text-[10px] leading-relaxed text-zinc-400">
+            Вдъхновяване на ежедневна емпатия и грижа у младото поколение.
+          </p>
         </button>
       </div>
+    </div>
     </div>
   );
 }

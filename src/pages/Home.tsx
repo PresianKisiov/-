@@ -413,15 +413,15 @@ export default function Home() {
                   </div>
                   
                   <blockquote className="relative p-6 sm:px-8 bg-white/5 border border-white/10 rounded-2xl text-zinc-300 italic text-sm sm:text-base z-10">
-                    <span className="text-brand font-bold not-italic mr-2">От „Атомни навици":</span>
-                    Направиш ли едно действие достатъчно лесно и приятно, започваш да го повтаряш без да се насилваш.
+                    <span className="text-brand font-bold not-italic mr-2">Силата на малките жестове:</span>
+                    Когато превърнем съпричастността в спонтанен ежедневен жест, ние променяме не само деня на някого, но и изграждаме по-сплотена общност.
                   </blockquote>
                 </div>
 
                 <div className="space-y-6 sm:space-y-8 pt-8 sm:pt-16 border-t border-brand/20 text-center flex flex-col items-center">
-                  <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Затова построих СПАСЕН</h4>
-                  <p className="text-white text-base sm:text-xl font-medium max-w-3xl">СПАСЕН е кутия за дарения в училище, която не награждава размера на дарението, а постоянството.</p>
-                  <p className="text-sm sm:text-base max-w-2xl text-zinc-400">В класацията на сайта точките идват от това колко дни даряваш, не колко пари. Ученик с 10 цента всеки ден изпреварва този, който е дал 2 евро веднъж.</p>
+                  <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Инициативата СПАСЕН</h4>
+                  <p className="text-white text-base sm:text-xl font-medium max-w-3xl">Обединяваме усилия в ПМГ „Акад. Иван Гюзелев“, за да изградим среда на взаимна подкрепа.</p>
+                  <p className="text-sm sm:text-base max-w-2xl text-zinc-400">Чрез поставянето на двете физически кутии (в стола и лавката на училището), всяко дарено ресто отива директно за подкрепа на деца и семейства в нужда. Тук всяка малка монета има значение.</p>
                   
                   <div className="py-6 sm:py-10 w-full flex justify-center">
                     <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-6 sm:px-10 py-4 sm:py-5 rounded-full uppercase tracking-widest text-xs sm:text-base shadow-[0_0_20px_rgba(0,229,153,0.4)] hover:shadow-[0_0_35px_rgba(0,229,153,0.6)] hover:bg-white transition-all text-center w-full sm:w-auto">
@@ -431,8 +431,8 @@ export default function Home() {
                   </div>
 
                   <div className="max-w-3xl space-y-4 text-sm sm:text-base text-zinc-400">
-                    <p>Това не е случайно решение. Това е цялата идея.</p>
-                    <p>Ако едно училище се научи на това с монети, то го е научило за всичко останало. За тренировките. За живота. Даряването е начинът, по който правим добро с даряване и тренираме учениците на постоянство.</p>
+                    <p>Това не е просто дарителска акция — това е начин да направим съпричастността част от нашето ежедневие.</p>
+                    <p>Когато цяло училище се обедини в тези малки, постоянни жестове, резултатът е реална и навременна помощ за тези, които имат най-голяма нужда.</p>
                   </div>
                   
                   <div className="mt-8 sm:mt-12 p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl max-w-4xl w-full text-center">
