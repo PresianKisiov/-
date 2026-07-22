@@ -19,7 +19,7 @@ export default function Layout() {
         {isLoading && <PageLoader />}
       </AnimatePresence>
       <Navbar onNavClick={triggerLoading} />
-      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 flex flex-col min-h-screen relative z-10">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 flex flex-col min-h-screen relative z-10">
         <main className="flex-grow py-12 sm:py-24">
           <Outlet />
         </main>

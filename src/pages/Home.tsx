@@ -89,7 +89,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section id="home" className="flex flex-col justify-center pt-32 sm:pt-40 pb-12 sm:pb-16 relative px-4 sm:px-0">
+      <section id="home" className="flex flex-col justify-center pt-32 sm:pt-40 pb-12 sm:pb-16 relative">
         
         {/* Hero Section Content */}
         <motion.div 
@@ -110,7 +110,7 @@ export default function Home() {
           </motion.div>
           
           <div className="flex items-baseline gap-2 sm:gap-4 justify-center lg:justify-start py-1">
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none flex flex-wrap justify-center lg:justify-start">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none flex flex-wrap justify-center lg:justify-start">
               {"Пресиян Кисьов".split(" ").map((word, wordIdx) => (
                 <span key={wordIdx} className="flex mr-[0.2em] last:mr-0">
                   {word.split("").map((char, i) => (
@@ -168,7 +168,7 @@ export default function Home() {
       {/* Mission & Values Section */}
       <motion.section 
         id="mission" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-8 sm:pt-16 px-4 sm:px-0"
+        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-8 sm:pt-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
@@ -387,7 +387,7 @@ export default function Home() {
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
                     {/* Column 1 - 100% */}
-                    <div className="bg-brand/5 border border-brand/20 p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden group">
+                    <div className="bg-brand/5 border border-brand/20 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-[50px] -mr-10 -mt-10 rounded-full"></div>
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand shadow-[0_0_15px_rgba(0,229,153,0.2)]">
@@ -423,7 +423,7 @@ export default function Home() {
                     </div>
 
                     {/* Column 2 - 30% */}
-                    <div className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden">
+                    <div className="bg-white/5 border border-white/10 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-zinc-400">
                           <BatteryMedium size={24} />
@@ -456,12 +456,12 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="text-center p-6 sm:p-8 rounded-2xl bg-brand/5 border border-brand/20 shadow-[0_0_30px_rgba(0,229,153,0.1)]">
+                <div className="text-center p-5 sm:p-8 rounded-2xl bg-brand/5 border border-brand/20 shadow-[0_0_30px_rgba(0,229,153,0.1)]">
                   <h4 className="text-brand font-black text-xl sm:text-2xl mb-4">Честният въпрос</h4>
                   <p className="text-white text-base sm:text-xl">Ако четеш това на телефон, на топло, с вода на две крачки, ти си от <span className="text-brand font-bold underline decoration-brand/30 underline-offset-4">първата колона</span>. Няма как да не си.</p>
                 </div>
 
-                <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6">
+                <div className="bg-white/5 border border-white/10 p-5 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand">
                       <Target size={24} />
@@ -483,20 +483,17 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-[#0a1612]/80 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/5 space-y-6 sm:space-y-8 relative my-8">
+                <div className="bg-[#0a1612]/80 p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/5 space-y-6 sm:space-y-8 relative my-8">
                   <div className="flex items-center gap-4 mb-2">
                     <Wallet className="text-brand" size={32} />
-                    <h4 className="text-white font-bold text-xl sm:text-3xl">Погледни собствения си джоб</h4>
+                    <h4 className="text-white font-bold text-xl sm:text-3xl">Истинската стойност на парите</h4>
                   </div>
                   
                   <div className="space-y-4 text-sm sm:text-base">
-                    <p>Не говорим за нечии чужди пари. Говорим за твоите.</p>
                     <p>Ученик получава пари за деня. Част от тях отиват за истински нужди — вода, храна. А останалите? Сокчета. Вафли. Дъвки. Чипс. Неща, които изяждаш за три минути и забравяш до края на часа.</p>
                     <p className="text-white italic">Направи си сметката сам: колко от парите ти отидоха за нещо, което ти трябваше, и колко за нещо, което просто ти се прииска?</p>
                     <p>Ако си честен, вторият процент е по-голям. <span className="text-brand font-medium">За човек от втората колона същите тези пари са храна за деня / важно лекарство / възможност за мечти.</span></p>
-                    <div className="p-4 sm:p-6 bg-brand/10 border-l-4 border-brand rounded-r-xl mt-6">
-                      <p className="text-white font-bold text-base sm:text-lg">Разликата между теб и него не е, че ти имаш много. Разликата е, че ти имаш достатъчно, за да ти остане.</p>
-                    </div>
+
                   </div>
                 </div>
 
@@ -508,28 +505,47 @@ export default function Home() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-sm sm:text-base">
                     <div className="space-y-4">
                       <p>Не ти казвам да се откажеш от вафлата. Казвам ти: <span className="text-white font-bold">дай рестото.</span></p>
-                      <p>Тези 10, 20, 50 стотинки, които се въргалят в джоба ти. Парите, които не броиш, защото са твърде малко.</p>
+                      <p>Тези 10, 20, 50 цента, които се въргалят в джоба ти.</p>
                     </div>
                     <div className="p-5 sm:p-6 rounded-2xl bg-[#0a1612] border border-brand/20">
-                      <p className="text-brand font-black text-xl mb-2">100 лв. / ден</p>
-                      <p>Едно училище с 500 ученици. Всеки дава по 20ст. Това са над 2000 лв. на месец. От пари, които не значат нищо за нас, а за другите са всичко (лекарство, храна).</p>
+                      <p className="text-brand font-black text-xl mb-2">50 евро / ден</p>
+                      <p>Едно училище с 500 ученици. Всеки дава по 10 цента. Това са над 1000 евро на месец. От пари, които не значат нищо за нас, а за другите са всичко (лекарство, храна).</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-6 sm:space-y-8">
-                  <div className="flex items-center gap-4">
+                <div className="bg-brand/5 border border-brand/20 p-5 sm:p-10 rounded-2xl sm:rounded-3xl space-y-8 relative overflow-hidden">
+                  <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand/10 blur-[50px] rounded-full pointer-events-none" />
+                  <div className="flex items-center gap-4 relative z-10">
                     <Repeat className="text-brand" size={32} />
-                    <h4 className="text-white font-bold text-2xl sm:text-3xl">Защо постоянството, а не размерът</h4>
+                    <h4 className="text-white font-bold text-2xl sm:text-3xl">Защо постоянството, а не размерът?</h4>
                   </div>
-                  <p className="text-sm sm:text-base">Един човек дарява 2 евро веднъж и се чувства добре. Друг дарява по 10 стотинки всеки ден. За месец вторият е дал по-малко пари, но е направил нещо, което първият не е: превърнал е даването в част от това, което е.</p>
-                  <p className="text-sm sm:text-base italic text-zinc-500 border-l-2 border-zinc-700 pl-4">В „Атомни навици" пише: направиш ли едно действие достатъчно лесно и приятно, започваш да го повтаряш без да се насилваш.</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                    <div className="bg-[#020806] border border-white/5 p-6 rounded-2xl space-y-3">
+                      <div className="text-zinc-500 font-bold uppercase tracking-wider text-xs mb-2">Подход 1: Еднократно</div>
+                      <p className="text-white font-medium text-lg">Даряваш 2 евро веднъж.</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed">Чувстваш се добре за деня, но след това забравяш. Действието остава изолирано събитие.</p>
+                    </div>
+                    
+                    <div className="bg-brand/10 border border-brand/30 p-6 rounded-2xl space-y-3 relative shadow-[0_0_30px_rgba(0,229,153,0.1)] group">
+                      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-brand rounded-l-2xl" />
+                      <div className="text-brand font-bold uppercase tracking-wider text-xs mb-2">Подход 2: Постоянно</div>
+                      <p className="text-white font-medium text-lg">Даряваш по 10 цента всеки ден.</p>
+                      <p className="text-zinc-300 text-sm leading-relaxed">За месец си дал по-малко пари общо, но си направил нещо безценно: <span className="text-brand font-bold">превърнал си даването в част от себе си.</span></p>
+                    </div>
+                  </div>
+                  
+                  <blockquote className="relative p-6 sm:px-8 bg-white/5 border border-white/10 rounded-2xl text-zinc-300 italic text-sm sm:text-base z-10">
+                    <span className="text-brand font-bold not-italic mr-2">От „Атомни навици":</span>
+                    Направиш ли едно действие достатъчно лесно и приятно, започваш да го повтаряш без да се насилваш.
+                  </blockquote>
                 </div>
 
                 <div className="space-y-6 sm:space-y-8 pt-8 sm:pt-16 border-t border-brand/20 text-center flex flex-col items-center">
                   <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Затова построих СПАСЕН</h4>
                   <p className="text-white text-base sm:text-xl font-medium max-w-3xl">СПАСЕН е кутия за дарения в училище, която не награждава размера на дарението, а постоянството.</p>
-                  <p className="text-sm sm:text-base max-w-2xl text-zinc-400">В класацията на сайта точките идват от това колко дни даряваш, не колко пари. Ученик с 10 стотинки всеки ден изпреварва този, който е дал 2 евро веднъж.</p>
+                  <p className="text-sm sm:text-base max-w-2xl text-zinc-400">В класацията на сайта точките идват от това колко дни даряваш, не колко пари. Ученик с 10 цента всеки ден изпреварва този, който е дал 2 евро веднъж.</p>
                   
                   <div className="py-6 sm:py-10 w-full flex justify-center">
                     <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-6 sm:px-10 py-4 sm:py-5 rounded-full uppercase tracking-widest text-xs sm:text-base shadow-[0_0_20px_rgba(0,229,153,0.4)] hover:shadow-[0_0_35px_rgba(0,229,153,0.6)] hover:bg-white transition-all text-center w-full sm:w-auto">
@@ -543,7 +559,7 @@ export default function Home() {
                     <p>Ако едно училище се научи на това с монети, то го е научило за всичко останало. За тренировките. За живота. Даряването е начинът, по който правим добро с даряване и тренираме учениците на постоянство.</p>
                   </div>
                   
-                  <div className="mt-8 sm:mt-12 p-6 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl max-w-4xl w-full text-center">
+                  <div className="mt-8 sm:mt-12 p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl max-w-4xl w-full text-center">
                     <p className="text-white font-medium text-lg sm:text-2xl italic leading-relaxed">
                       "А парите отиват там, където трябва — при болни деца, при семейства, за които едно лекарство е непосилно. При хора с проблеми, които им пречат да са свободни и да правят това, което искат, както ние можем."
                     </p>
@@ -557,7 +573,7 @@ export default function Home() {
         </motion.div>
 
         {/* СПАСЕН */}
-        <div className="mt-12 sm:mt-24 p-6 sm:p-16 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden flex flex-col items-center text-center">
+        <div className="mt-12 sm:mt-24 p-5 sm:p-16 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden flex flex-col items-center text-center">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.08),transparent_70%)]" />
           
           <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-6 sm:space-y-10">
@@ -607,7 +623,7 @@ export default function Home() {
       {/* Speech Section */}
       <motion.section 
         id="speech" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 max-w-5xl mx-auto pt-12 sm:pt-32 px-4 sm:px-0 flex flex-col items-center"
+        className="scroll-mt-32 space-y-8 sm:space-y-12 max-w-5xl mx-auto pt-12 sm:pt-32 flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
@@ -658,7 +674,7 @@ export default function Home() {
               <p className="text-brand font-medium text-sm sm:text-lg">Стъпката извън зоната на комфорт и силата да заявиш себе си.</p>
             </div>
             
-            <div className="relative p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-[#0a1612]/60 border border-brand/20 overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.05)]">
+            <div className="relative p-5 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-[#0a1612]/60 border border-brand/20 overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.05)]">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 blur-[100px] rounded-full pointer-events-none" />
               
               <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 relative z-10">
@@ -699,7 +715,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <blockquote className="relative p-6 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl">
+                  <blockquote className="relative p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl">
                     <div className="absolute top-4 left-4 text-brand/20 text-6xl font-serif leading-none">"</div>
                     <p className="relative z-10 text-white font-medium text-lg sm:text-xl italic pl-6">
                       Не се срамувайте от Човешкия Син, защото и Той ще се срамува от вас
@@ -710,7 +726,7 @@ export default function Home() {
                     Това преобърна нагласата ми. Осъзнах, че страхът е илюзия. Когато говориш искрено за ценностите си, преодоляваш собствените си бариери и печелиш уважението на хората, които наистина имат значение.
                   </p>
 
-                  <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#020806] border border-white/5 relative overflow-hidden group">
+                  <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#020806] border border-white/5 relative overflow-hidden group">
                     <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-brand" />
                     <h4 className="text-white font-bold mb-3 flex items-center gap-2 text-lg sm:text-xl">
                       <Lightbulb size={20} className="text-brand" />
@@ -747,7 +763,7 @@ export default function Home() {
       {/* Contact Section */}
       <motion.section 
         id="contact" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-12 sm:pt-32 px-4 sm:px-0"
+        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-12 sm:pt-32"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
@@ -769,7 +785,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center gap-3 sm:gap-4 p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
+            className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
           >
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
               <Linkedin className="w-6 h-6 sm:w-6 sm:h-6" strokeWidth={1.5} />
@@ -788,7 +804,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col items-center gap-3 sm:gap-4 p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
+            className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
           >
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
               <Instagram className="w-6 h-6 sm:w-6 sm:h-6" strokeWidth={1.5} />
@@ -805,7 +821,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col items-center gap-3 sm:gap-4 p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group col-span-1 sm:col-span-2 lg:col-span-1"
+            className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group col-span-1 sm:col-span-2 lg:col-span-1"
           >
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6 sm:w-6 sm:h-6" strokeWidth={1.5} />

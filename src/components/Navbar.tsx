@@ -82,9 +82,11 @@ export default function Navbar({ onNavClick }: NavbarProps) {
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-8",
       isScrolled 
-        ? "py-3 bg-[#020806]/80 border-b border-white/5 shadow-2xl" 
-        : "py-4 sm:py-6 bg-transparent",
-      isScrolled && !isMobileMenuOpen ? "backdrop-blur-lg" : ""
+        ? "py-3 border-b border-white/5 shadow-2xl" 
+        : "py-4 sm:py-6",
+      isScrolled && !isMobileMenuOpen ? "bg-[#020806]/80 backdrop-blur-lg" : "",
+      !isScrolled && !isMobileMenuOpen ? "bg-transparent" : "",
+      isMobileMenuOpen ? "bg-[#020806]" : ""
     )}>
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <motion.a 
@@ -186,7 +188,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
           >
             {/* Overlay */}
             <div 
-              className="absolute inset-0 bg-[#020806]/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-[#020806]"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
@@ -208,7 +210,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05 }}
                     className={cn(
-                      "text-4xl font-black tracking-tighter uppercase transition-all duration-300 flex items-center justify-between group",
+                      "text-3xl font-black tracking-tighter uppercase transition-all duration-300 flex items-center justify-between group",
                       activeSection === link.path 
                         ? "text-brand" 
                         : "text-white/40 hover:text-white"
