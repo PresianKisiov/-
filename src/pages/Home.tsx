@@ -18,7 +18,7 @@ const timeline = [
     lesson: 'Не всичко е толкова лесно, колкото изглежда, и socialните мрежи често изкривяват представата за успеха.'
   },
   {
-    period: '14г. —',
+    period: '14+ г.',
     title: 'Реализация и проекти',
     desc: 'Изграждам умения, взаимоотношения, правилно говорене пред публика и реализирам идеи в конкретни проекти.',
     lesson: 'Тепърва предстои...'
@@ -220,33 +220,12 @@ export default function Home() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-8 py-4 rounded-full uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_35px_rgba(0,229,153,0.5)] hover:bg-white transition-all text-center w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-8 py-4 rounded-full shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_35px_rgba(0,229,153,0.5)] hover:bg-white transition-all text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
               >
                 Разгледай демо версията
                 <ArrowRight size={16} />
               </motion.a>
-              <div 
-                className="inline-flex items-center justify-center gap-2 bg-white/5 text-zinc-400 font-bold px-6 py-4 rounded-full border border-white/10 text-xs sm:text-xs tracking-wider uppercase select-none w-full sm:w-auto"
-              >
-                В процес на разработка
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand/5 blur-[80px] pointer-events-none" />
-          
-          <div className="relative z-10 space-y-6 sm:space-y-12">
-
-            {/* Toggle Show More SPASEN Details Button */}
-            <div className="w-full flex justify-center pt-4 sm:pt-6">
               <motion.button
                 onClick={() => {
                   if (showSpasenDetails) {
@@ -259,22 +238,28 @@ export default function Home() {
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full text-xs sm:text-sm font-black transition-all bg-brand text-[#0a1612] hover:bg-white h-12 px-8 shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_30px_rgba(0,229,153,0.5)] uppercase tracking-wider w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-8 py-4 rounded-full uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_35px_rgba(0,229,153,0.5)] hover:bg-white transition-all text-center w-full sm:w-auto"
               >
-                {showSpasenDetails ? 'Скрий подробностите за проекта' : 'Научи как работи СПАСЕН'}
+                {showSpasenDetails ? 'Скрий подробностите' : 'Научи как работи СПАСЕН'}
                 <ArrowRight size={16} className={cn("transition-transform duration-300", showSpasenDetails && "rotate-90")} />
               </motion.button>
             </div>
+          </div>
+        </div>
 
-            <AnimatePresence mode="wait">
-              {showSpasenDetails && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="pt-6 sm:pt-10 border-t border-brand/10 overflow-hidden"
-                >
+        <AnimatePresence mode="wait">
+          {showSpasenDetails && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0, scale: 0.98 }}
+              animate={{ opacity: 1, height: 'auto', scale: 1 }}
+              exit={{ opacity: 0, height: 0, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/20 relative mt-4">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand/5 blur-[80px] pointer-events-none" />
+                
+                <div className="relative z-10 space-y-6 sm:space-y-12">
                   <div className="text-zinc-400 space-y-10 sm:space-y-16 leading-relaxed">
                     
                     {/* Пътят на едно дарение */}
@@ -525,11 +510,11 @@ export default function Home() {
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm sm:text-base text-zinc-300 leading-relaxed">
                         <div className="space-y-4">
-                          <p>
-                            СПАСЕН не е спусната „отгоре“ корпоративна инициатива или външна програма. Тя е <span className="text-white font-bold text-brand">изцяло замислена, проектирана, конструирана и кодирана от ученици.</span>
+                          <p className="text-xl font-medium text-white">
+                            Проектът е изцяло задвижван от ученици.
                           </p>
                           <p>
-                            От чертежите на физическата смарт кутия и ръчното сглобяване на хардуера, до уеб интерфейсите и базата данни — всеки един елемент е разработен от младежки умове, решени да направят активна промяна в своето училище.
+                            Това не е корпоративна инициатива или външна програма, а реален опит на младежи да направят активна промяна в своето училище.
                           </p>
                         </div>
                         <div className="space-y-4 bg-white/5 p-5 rounded-2xl border border-white/5">
@@ -755,14 +740,11 @@ export default function Home() {
                     </div>
 
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-          </div>
-        </motion.div>
-
-
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.section>
 
 
