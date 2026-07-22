@@ -1,28 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { motion, useMotionValue, useSpring, useTransform, animate } from 'motion/react';
 import { Coins, Award, Users, Flame, Sparkles, Heart } from 'lucide-react';
 
 export default function Box3D() {
   const [isHovered, setIsHovered] = useState(false);
   const [coinDropped, setCoinDropped] = useState(false);
   const [activeFace, setActiveFace] = useState<'front' | 'right' | 'back' | 'left'>('front');
+  const [isIntroducing, setIsIntroducing] = useState(true);
 
   // Motion values for drag and auto-rotate
-  const rotateXVal = useMotionValue(15);
-  const rotateYVal = useMotionValue(45);
+  const rotateXVal = useMotionValue(-45);
+  const rotateYVal = useMotionValue(-180);
 
   const springConfig = { damping: 20, stiffness: 80, mass: 1 };
   const rotateX = useSpring(rotateXVal, springConfig);
   const rotateY = useSpring(rotateYVal, springConfig);
 
-  // Auto-rotation effect when not hovered or active
+  // Sweeping entry rotation on mount
   useEffect(() => {
-    if (isHovered) return;
+    // Reset to dramatic starting positions
+    rotateXVal.set(-45);
+    rotateYVal.set(-180);
+
+    // Animate smoothly to standard view angles
+    const animX = animate(rotateXVal, 15, {
+      duration: 1.8,
+      ease: [0.16, 1, 0.3, 1] // easeOutExpo
+    });
+    const animY = animate(rotateYVal, 45, {
+      duration: 1.8,
+      ease: [0.16, 1, 0.3, 1] // easeOutExpo
+    });
+
+    const timer = setTimeout(() => {
+      setIsIntroducing(false);
+    }, 1800);
+
+    return () => {
+      animX.stop();
+      animY.stop();
+      clearTimeout(timer);
+    };
+  }, []);
+
+  // Auto-rotation effect when not hovered, active, or introducing
+  useEffect(() => {
+    if (isHovered || isIntroducing) return;
     
     let animationFrameId: number;
     let lastTime = performance.now();
     
-    const animate = (time: number) => {
+    const animateRotation = (time: number) => {
       const delta = (time - lastTime) / 1000;
       lastTime = time;
       
@@ -30,12 +58,12 @@ export default function Box3D() {
       const currentY = rotateYVal.get();
       rotateYVal.set((currentY + delta * 15) % 360);
       
-      animationFrameId = requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animateRotation);
     };
     
-    animationFrameId = requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animateRotation);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered]);
+  }, [isHovered, isIntroducing]);
 
   // Handle manual drag/swipe rotation
   const handleDrag = (_event: any, info: any) => {
@@ -205,7 +233,7 @@ export default function Box3D() {
             </div>
           </div>
 
-          {/* 3. RIGHT FACE (Динамична Класация / Геймификация) */}
+          {/* 3. RIGHT FACE (Динамична Класация / Дигитална интеграция) */}
           <div 
             className="absolute inset-y-0 left-1/2 w-[240px] -ml-[120px] bg-gradient-to-b from-[#0a1612] to-[#020806] border-2 border-brand/40 rounded-3xl p-6 flex flex-col justify-between shadow-[0_0_40px_rgba(0,229,153,0.1)]"
             style={{ 
@@ -431,7 +459,7 @@ export default function Box3D() {
             <span className="text-xs sm:text-sm font-bold">Класации</span>
           </div>
           <p className="text-[10px] leading-relaxed text-zinc-400">
-            Геймифицирана система, награждаваща редовните дарения.
+            Дигитално интегрирана система, награждаваща редовните дарения.
           </p>
         </button>
 

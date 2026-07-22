@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database } from 'lucide-react';
+import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database, XCircle, CheckCircle2 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Box3D from '../components/Box3D';
 
@@ -244,7 +244,6 @@ export default function Home() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand/5 blur-[80px] pointer-events-none" />
           
           <div className="relative z-10 space-y-6 sm:space-y-12">
-            <Box3D />
 
             {/* Toggle Show More SPASEN Details Button */}
             <div className="w-full flex justify-center pt-4 sm:pt-6">
@@ -289,6 +288,11 @@ export default function Home() {
                         <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
                           Виж как физическата кутия и софтуерната система си взаимодействат, за да превърнат дарителството в траен навик:
                         </p>
+                      </div>
+
+                      {/* 3D Box interactive model */}
+                      <div className="py-4 sm:py-8">
+                        <Box3D />
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -398,6 +402,155 @@ export default function Home() {
                           <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
                             Обявяваме месечните топ дарители, за да мотивираме споделеното утре.
                           </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Comparison: Spasen vs Ordinary Boxes */}
+                    <div className="space-y-8 pt-10 sm:pt-16 border-t border-brand/10">
+                      <div className="text-center space-y-3">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 text-brand rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border border-brand/20">
+                          <Compass size={12} />
+                          Революция в дарителството
+                        </div>
+                        <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight uppercase">СПАСЕН срещу Обикновена кутия</h3>
+                        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+                          Защо СПАСЕН не е просто поредната дървена кутия, оставена на самотек в училищния коридор?
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                        {/* Ordinary Box Column */}
+                        <div className="bg-[#080c0a]/40 border border-white/5 p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative opacity-75 hover:opacity-100 transition-opacity">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-zinc-900 flex items-center justify-center text-zinc-500">
+                              <HelpCircle size={24} />
+                            </div>
+                            <div>
+                              <h4 className="text-zinc-400 font-bold text-lg sm:text-xl">Обикновена кутия</h4>
+                              <p className="text-zinc-600 font-black text-[10px] sm:text-xs uppercase tracking-wider">Традиционен пасивен подход</p>
+                            </div>
+                          </div>
+
+                          <ul className="space-y-5 text-sm sm:text-base">
+                            <li className="flex gap-3 text-zinc-400">
+                              <XCircle className="text-red-500/60 shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-zinc-300 block font-semibold">Пасивна и незабележима</strong>
+                                Стои статично в ъгъла, лесно се слива с околната среда и бързо се превръща в част от декора.
+                              </div>
+                            </li>
+                            <li className="flex gap-3 text-zinc-400">
+                              <XCircle className="text-red-500/60 shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-zinc-300 block font-semibold">Анонимна без обратна връзка</strong>
+                                Пускаш монета, но никога не разбираш какъв е твоят принос, няма класация и липсва усещането за общност.
+                              </div>
+                            </li>
+                            <li className="flex gap-3 text-zinc-400">
+                              <XCircle className="text-red-500/60 shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-zinc-300 block font-semibold">Съмнения в прозрачността</strong>
+                                Нямаш идея колко пари има вътре, кога се събират, къде отиват и дали реално стигат до каузата.
+                              </div>
+                            </li>
+                            <li className="flex gap-3 text-zinc-400">
+                              <XCircle className="text-red-500/60 shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-zinc-300 block font-semibold">Инцидентно дарителство</strong>
+                                Разчита на редки импулсивни жестове при организирани събития, без да създава траен навик у децата.
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+
+                        {/* Spasen Column */}
+                        <div className="bg-brand/5 border border-brand/20 p-6 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden shadow-[0_0_40px_rgba(0,229,153,0.05)]">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-[50px] -mr-10 -mt-10 rounded-full pointer-events-none"></div>
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand shadow-[0_0_15px_rgba(0,229,153,0.2)]">
+                              <Sparkles size={24} />
+                            </div>
+                            <div>
+                              <h4 className="text-white font-bold text-lg sm:text-xl">Системата СПАСЕН</h4>
+                              <p className="text-brand font-black text-[10px] sm:text-xs uppercase tracking-wider">Интерактивно дигитално бъдеще</p>
+                            </div>
+                          </div>
+
+                          <ul className="space-y-5 text-sm sm:text-base">
+                            <li className="flex gap-3 text-zinc-300">
+                              <CheckCircle2 className="text-brand shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-white block font-semibold">Интерактивна хардуерна кутия</strong>
+                                Скенерът за QR кодове и автоматичното механично отваряне на клапата привличат вниманието и будят любопитство.
+                              </div>
+                            </li>
+                            <li className="flex gap-3 text-zinc-300">
+                              <CheckCircle2 className="text-brand shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-white block font-semibold">Личен профил и интерактивност</strong>
+                                Всеки ученик има свой QR код. Всяка стотинка се записва на негово име, носи му точки, дигитални значки за активност и възможност за приятелско съревнование между класовете за дигитално интегриране.
+                              </div>
+                            </li>
+                            <li className="flex gap-3 text-zinc-300">
+                              <CheckCircle2 className="text-brand shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-white block font-semibold">100% дигитална прозрачност</strong>
+                                Всички данни се отразяват на момента в сайта. Има подробен дигитален одит, публични отчети и пълна проследимост на каузите.
+                              </div>
+                            </li>
+                            <li className="flex gap-3 text-zinc-300">
+                              <CheckCircle2 className="text-brand shrink-0 mt-0.5" size={20} />
+                              <div>
+                                <strong className="text-white block font-semibold">Изграждане на ежедневен навик</strong>
+                                Фокусира се върху дребното ресто за неща, които не ни трябват (сок, чипс), превръщайки дарителството в спонтанен ежедневен навик.
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Student-led Initiative Highlight Section */}
+                    <div className="bg-brand/5 border border-brand/20 p-6 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden my-8 sm:my-12">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-[50px] -mr-10 -mt-10 rounded-full pointer-events-none"></div>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-brand/10 pb-4">
+                        <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand shrink-0 shadow-[0_0_15px_rgba(0,229,153,0.2)]">
+                          <Users size={24} />
+                        </div>
+                        <div>
+                          <h4 className="text-white font-black text-xl sm:text-2xl uppercase tracking-tight">Изцяло от ученици, за ученици</h4>
+                          <p className="text-brand font-bold text-xs uppercase tracking-wider">100% авторска инициатива и управление</p>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm sm:text-base text-zinc-300 leading-relaxed">
+                        <div className="space-y-4">
+                          <p>
+                            СПАСЕН не е спусната „отгоре“ корпоративна инициатива или външна програма. Тя е <span className="text-white font-bold text-brand">изцяло замислена, проектирана, конструирана и кодирана от ученици.</span>
+                          </p>
+                          <p>
+                            От чертежите на физическата смарт кутия и ръчното сглобяване на хардуера, до уеб интерфейсите и базата данни — всеки един елемент е разработен от младежки умове, решени да направят активна промяна в своето училище.
+                          </p>
+                        </div>
+                        <div className="space-y-4 bg-white/5 p-5 rounded-2xl border border-white/5">
+                          <h5 className="text-white font-bold text-base mb-2 flex items-center gap-2">
+                            <Sparkles className="text-brand shrink-0" size={18} />
+                            Защо това има огромно значение?
+                          </h5>
+                          <ul className="space-y-3 text-xs sm:text-sm text-zinc-400">
+                            <li className="flex gap-2">
+                              <span className="text-brand font-bold">✓</span>
+                              <span><strong className="text-white">Взаимно вдъхновение:</strong> Даряваш по-свободно, когато виждаш труда и чистата енергия на свои съученици.</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span className="text-brand font-bold">✓</span>
+                              <span><strong className="text-white">Пълна автономност:</strong> Учениците сами организират поддръжката, отчитането и гласуването за конкретни каузи.</span>
+                            </li>
+                            <li className="flex gap-2">
+                              <span className="text-brand font-bold">✓</span>
+                              <span><strong className="text-white">Реални инженерни умения:</strong> Проектът задвижва реално учене по програмиране, електроника, 3D дизайн и управление на проекти.</span>
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
