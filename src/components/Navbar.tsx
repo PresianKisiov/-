@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
   { name: 'Начало', path: '#home' },
-  { name: 'SPASEN', path: '#mission' },
+  { name: 'СПАСЕН', path: '#mission' },
   { name: 'Речи', path: '#speech' },
   { name: 'Контакти', path: '#contact' },
 ];
@@ -172,7 +172,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
             whileTap={{ scale: 0.95 }}
             className="bg-brand text-[#0a1612] font-black px-6 py-2 rounded-full uppercase tracking-wider text-sm shadow-[0_0_15px_rgba(0,229,153,0.3)] hover:shadow-[0_0_25px_rgba(0,229,153,0.5)] hover:bg-white transition-all flex items-center gap-2"
           >
-            SPASEN <span className="opacity-70 text-xs">ДЕМО ВЕРСИЯ</span>
+            СПАСЕН <span className="opacity-70 text-xs">ДЕМО ВЕРСИЯ</span>
           </motion.a>
         </div>
       </div>
@@ -237,7 +237,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                 transition={{ delay: 0.4 }}
                 className="mt-8 bg-brand text-[#0a1612] font-black py-4 rounded-full uppercase tracking-wider text-xl text-center shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:bg-white transition-all w-full flex items-center justify-center gap-2"
               >
-                SPASEN <span className="opacity-70 text-sm">ДЕМО ВЕРСИЯ</span>
+                СПАСЕН <span className="opacity-70 text-sm">ДЕМО ВЕРСИЯ</span>
               </motion.a>
 
               <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">

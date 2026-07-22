@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet } from 'lucide-react';
 import { cn } from '../lib/utils';
+import Box3D from '../components/Box3D';
 
 const timeline = [
   {
@@ -174,32 +175,62 @@ export default function Home() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-4 sm:space-y-10 text-center mb-8 sm:mb-16">
-          <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">
-            SPASEN
-          </h2>
-          <motion.p 
-            className="text-lg sm:text-4xl lg:text-5xl text-brand font-sans font-light italic tracking-tight"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: { transition: { staggerChildren: 0.04 } },
-              hidden: {}
-            }}
-          >
-            {'"Искам да имам всичко, само за да го раздам."'.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 5 },
-                  visible: { opacity: 1, y: 0 }
-                }}
+        <div className="p-6 sm:p-16 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden flex flex-col items-center text-center">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.08),transparent_70%)]" />
+          
+          <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-6 sm:space-y-10">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-5 py-2 bg-brand/20 text-brand text-xs sm:text-sm font-black uppercase tracking-[0.2em] rounded-full border border-brand/40 shadow-[0_0_20px_rgba(0,229,153,0.3)]"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand shadow-[0_0_8px_rgba(0,229,153,0.8)]"></span>
+              </span>
+              Проект в процес
+            </motion.div>
+            
+            <h2 className="text-5xl sm:text-8xl font-black tracking-tighter text-brand drop-shadow-[0_0_30px_rgba(0,229,153,0.3)] uppercase">
+              СПАСЕН
+            </h2>
+            
+            <div className="max-w-3xl mx-auto space-y-6 px-4">
+              <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug sm:leading-relaxed tracking-tight">
+                Инициатива за поставяне на <span className="text-brand">интерактивни кутии</span> с класации и награди за <span className="text-brand">целенасочена благотворителност</span> в училищата.
+              </p>
+            </div>
+
+            <div className="w-16 h-px bg-brand/30 my-4" />
+
+            <p className="text-lg sm:text-3xl text-zinc-300 font-medium italic leading-tight max-w-3xl">
+              „Тези 30 цента няма да променят <span className="text-brand font-semibold">твоя</span> живот. Но ще променят <span className="text-brand font-semibold">нечий друг</span>.“
+            </p>
+            
+            <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              Социална инициатива, която поставя кутии за дарения и променя начина, по който младото поколение мисли за парите.
+            </p>
+            
+            <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+              <motion.a 
+                href="https://spasen.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-8 py-4 rounded-full uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_35px_rgba(0,229,153,0.5)] hover:bg-white transition-all text-center w-full sm:w-auto"
               >
-                {char}
-              </motion.span>
-            ))}
-          </motion.p>
+                Разгледай демо версията
+                <ArrowRight size={16} />
+              </motion.a>
+              <div 
+                className="inline-flex items-center justify-center gap-2 bg-white/5 text-zinc-400 font-bold px-6 py-4 rounded-full border border-white/10 text-xs sm:text-xs tracking-wider uppercase select-none w-full sm:w-auto"
+              >
+                В процес на разработка
+              </div>
+            </div>
+          </div>
         </div>
 
         <motion.div 
@@ -212,162 +243,7 @@ export default function Home() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand/5 blur-[80px] pointer-events-none" />
           
           <div className="relative z-10 space-y-6 sm:space-y-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 py-2">
-              {/* Person 1 */}
-              <div className="space-y-4 sm:space-y-6 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0a1612]/60 border border-brand/20">
-                <h3 className="text-sm sm:text-lg font-medium text-white flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-brand" />
-                  Осигурен човек (Аз)
-                </h3>
-                <div className="space-y-4 sm:space-y-5">
-                  <div>
-                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            setActiveTooltip(activeTooltip === 'base-needs-1' ? null : 'base-needs-1');
-                          }}
-                          className="flex items-center gap-1 sm:gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-brand transition-colors text-left"
-                        >
-                          <span>Базови нужди</span>
-                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'base-needs-1' ? "text-brand" : "text-zinc-500")} />
-                        </button>
-                      </div>
-                      <span className="text-white">100%</span>
-                    </div>
-                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-brand w-full" />
-                    </div>
-                    <AnimatePresence>
-                      {activeTooltip === 'base-needs-1' && (
-                        <motion.p 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="text-[10px] sm:text-sm text-brand-dark/90 mt-2 leading-relaxed font-medium bg-brand/5 p-2 rounded-lg border border-brand/10"
-                        >
-                          Храна, подслон и сигурност - когато тези неща са на 100%, човек може да мисли за по-високи цели.
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            setActiveTooltip(activeTooltip === 'motives-1' ? null : 'motives-1');
-                          }}
-                          className="flex items-center gap-1 sm:gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-brand transition-colors text-left"
-                        >
-                          <span>Мотиви</span>
-                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'motives-1' ? "text-brand" : "text-zinc-500")} />
-                        </button>
-                      </div>
-                      <span className="text-white">100%</span>
-                    </div>
-                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-brand-dark w-full" />
-                    </div>
-                    <AnimatePresence>
-                      {activeTooltip === 'motives-1' && (
-                        <motion.p 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="text-[10px] sm:text-sm text-brand-dark/90 mt-2 leading-relaxed font-medium bg-brand/5 p-2 rounded-lg border border-brand/10"
-                        >
-                          Вътрешният двигател, който ме кара да се развивам и да помагам на другите.
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
-
-              {/* Person 2 */}
-              <div className="space-y-4 sm:space-y-6 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0a1612]/60 border border-brand/20">
-                <h3 className="text-sm sm:text-lg font-medium text-white flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-500" />
-                  Човек в нужда
-                </h3>
-                <div className="space-y-4 sm:space-y-5">
-                  <div>
-                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            setActiveTooltip(activeTooltip === 'base-needs-2' ? null : 'base-needs-2');
-                          }}
-                          className="flex items-center gap-1 sm:gap-1.5 border-b border-dashed border-zinc-500/50 hover:text-red-500 transition-colors text-left"
-                        >
-                          <span>Базови нужди</span>
-                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'base-needs-2' ? "text-red-500" : "text-zinc-500")} />
-                        </button>
-                      </div>
-                      <span className="text-white">30%</span>
-                    </div>
-                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-red-500 w-[30%]" />
-                    </div>
-                    <AnimatePresence>
-                      {activeTooltip === 'base-needs-2' && (
-                        <motion.p 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="text-[10px] sm:text-sm text-red-400 mt-2 leading-relaxed font-medium bg-red-500/5 p-2 rounded-lg border border-red-500/10"
-                        >
-                          Липсата на подсигурени базови нужди често пречи на хората да видят собствения си потенциал.
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-[8px] sm:text-xs text-zinc-500 mb-1.5 sm:mb-2 uppercase tracking-wider font-medium">
-                      <div className="flex items-center gap-1 sm:gap-1.5 group relative cursor-help">
-                        <button 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            setActiveTooltip(activeTooltip === 'motives-2' ? null : 'motives-2');
-                          }}
-                          className={cn(
-                            "flex items-center gap-1 sm:gap-1.5 border-b border-dashed transition-colors text-left",
-                            activeTooltip === 'motives-2' ? "text-red-500 border-red-500/50" : "text-zinc-500 border-zinc-500/50 hover:text-red-500"
-                          )}
-                        >
-                          <span>Мотиви</span>
-                          <Info size={12} className={cn("sm:size-[14px] transition-colors shrink-0", activeTooltip === 'motives-2' ? "text-red-500" : "text-zinc-500")} />
-                        </button>
-                      </div>
-                      <span className="text-white">15%</span>
-                    </div>
-                    <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-zinc-500 w-[15%]" />
-                    </div>
-                    <AnimatePresence>
-                      {activeTooltip === 'motives-2' && (
-                        <motion.p 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="text-[10px] sm:text-sm text-red-400/90 mt-2 leading-relaxed font-medium bg-red-500/5 p-2 rounded-lg border border-red-500/10"
-                        >
-                          Дори при най-трудни обстоятелства, силните мотиви са това, което ни движи напред.
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Box3D />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -572,45 +448,7 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* СПАСЕН */}
-        <div className="mt-12 sm:mt-24 p-5 sm:p-16 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden flex flex-col items-center text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.08),transparent_70%)]" />
-          
-          <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-6 sm:space-y-10">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-brand/20 text-brand text-xs sm:text-sm font-black uppercase tracking-[0.2em] rounded-full border border-brand/40 shadow-[0_0_20px_rgba(0,229,153,0.3)]"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand shadow-[0_0_8px_rgba(0,229,153,0.8)]"></span>
-              </span>
-              Проект в процес
-            </motion.div>
-            
-            <h3 className="text-5xl sm:text-8xl font-black tracking-tighter text-brand drop-shadow-[0_0_30px_rgba(0,229,153,0.3)]">
-              СПАСЕН
-            </h3>
-            
-            <p className="text-xl sm:text-4xl text-white font-medium italic leading-tight max-w-3xl">
-              „Тези 30 цента няма да променят <span className="text-brand">твоя</span> живот. Но ще променят <span className="text-brand">нечий друг</span>.“
-            </p>
-            
-            <p className="text-zinc-400 text-sm sm:text-xl leading-relaxed max-w-2xl mx-auto">
-              Социална инициатива, която поставя кутии за дарения и променя начина, по който младото поколение мисли за парите.
-            </p>
-            
-            <div className="pt-6 sm:pt-8 flex flex-col items-center gap-4 w-full">
-              <div 
-                className="inline-flex items-center justify-center gap-3 bg-white/5 text-zinc-400 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 text-sm sm:text-lg cursor-not-allowed w-full sm:w-auto"
-              >
-                В процес на разработка
-              </div>
-            </div>
-          </div>
-        </div>
+
       </motion.section>
 
 
