@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-import { Coins, Award, Users, Flame, Sparkles } from 'lucide-react';
+import { Coins, Award, Users, Flame, Sparkles, Heart } from 'lucide-react';
 
 export default function Box3D() {
   const [isHovered, setIsHovered] = useState(false);
@@ -264,7 +264,7 @@ export default function Box3D() {
             </div>
           </div>
 
-          {/* 4. LEFT FACE (Атомни Навици) */}
+          {/* 4. LEFT FACE (Малки Жестове) */}
           <div 
             className="absolute inset-y-0 left-1/2 w-[240px] -ml-[120px] bg-gradient-to-b from-[#0a1612] to-[#020806] border-2 border-brand/40 rounded-3xl p-6 flex flex-col justify-between shadow-[0_0_40px_rgba(0,229,153,0.1)]"
             style={{ 
@@ -274,24 +274,24 @@ export default function Box3D() {
             }}
           >
             <div className="flex justify-between items-start">
-              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Силата на навика</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Силата на малкия жест</span>
               <Users size={14} className="text-brand" />
             </div>
 
             <div className="space-y-3">
               <p className="text-white font-extrabold text-sm leading-snug">
-                Промяна стъпка по стъпка
+                Малки жестове, голяма промяна
               </p>
               <p className="text-[10px] sm:text-xs text-zinc-400 leading-relaxed">
-                Навикът да отделяш малка част от своите ресурси за другите е мускул, който се тренира.
+                Да отделяш по няколко стотинки всеки ден ни учи на съпричастност и грижа за другите в нашето ежедневие.
               </p>
               <p className="text-[10px] sm:text-xs text-zinc-400 leading-relaxed">
-                Ако се научиш да даряваш по 20 стотинки ежедневно в училище, утре ще си човек, който умее да изгражда силни навици в живота.
+                Когато цяло училище се обедини в тези малки, ежедневни жестове, резултатът е истинска подкрепа за тези, които имат най-голяма нужда.
               </p>
             </div>
 
             <div className="bg-white/5 p-2 rounded-xl text-[9px] text-zinc-500 italic text-center">
-              "Дребните навици формират големи личности."
+              "Малките жестове, правени от много хора, променят света."
             </div>
           </div>
 
@@ -449,11 +449,11 @@ export default function Box3D() {
             }`}
           >
             <div className="flex items-center gap-2 mb-1.5">
-              <Flame className={activeFace === 'left' ? 'text-brand' : 'text-zinc-500'} size={16} />
-              <span className="text-xs sm:text-sm font-bold">Атомни Навици</span>
+              <Heart className={activeFace === 'left' ? 'text-brand' : 'text-zinc-500'} size={16} />
+              <span className="text-xs sm:text-sm font-bold">Малки жестове</span>
             </div>
             <p className="text-[10px] leading-relaxed text-zinc-400">
-              Възпитаване на дългосрочни добродетели и навици у младите.
+              Вдъхновяване на ежедневна емпатия и грижа у младото поколение.
             </p>
           </button>
         </div>
