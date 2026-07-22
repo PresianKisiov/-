@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet } from 'lucide-react';
+import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Box3D from '../components/Box3D';
 
@@ -15,7 +15,7 @@ const timeline = [
     period: '12-14г.',
     title: 'Опити и израстване',
     desc: 'Време на интензивни опити, нови идеи и постоянно развитие в различни посоки.',
-    lesson: 'Не всичко е толкова лесно, колкото изглежда, и социалните мрежи често изкривяват представата за успеха.'
+    lesson: 'Не всичко е толкова лесно, колкото изглежда, и socialните мрежи често изкривяват представата за успеха.'
   },
   {
     period: '14г. —',
@@ -29,6 +29,7 @@ export default function Home() {
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [showSpeeches, setShowSpeeches] = useState(false);
+  const [showSpasenDetails, setShowSpasenDetails] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -209,7 +210,7 @@ export default function Home() {
             </p>
             
             <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Социална инициатива, която поставя кутии за дарения и променя начина, по който младото поколение мисли за парите.
+              Проектът цели да изгради трайни навици за съпричастност сред учениците, превръщайки даряването на дребно ресто в спонтанен и ценен жест за подкрепа на деца и семейства в нужда.
             </p>
             
             <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
@@ -245,205 +246,365 @@ export default function Home() {
           <div className="relative z-10 space-y-6 sm:space-y-12">
             <Box3D />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="pt-6 sm:pt-10 border-t border-brand/10"
-            >
-              <div className="text-zinc-400 space-y-10 sm:space-y-16 leading-relaxed">
-                
-                {/* Intro & The Two Columns */}
-                <div className="space-y-6 sm:space-y-10">
-                  <div className="text-center space-y-4">
-                    <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight">Представи си две колони</h3>
-                    <p className="text-zinc-400 text-sm sm:text-lg max-w-2xl mx-auto">Какво означава да имаш покрити нужди и какво означава да се бориш за тях.</p>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
-                    {/* Column 1 - 100% */}
-                    <div className="bg-brand/5 border border-brand/20 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-[50px] -mr-10 -mt-10 rounded-full"></div>
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand shadow-[0_0_15px_rgba(0,229,153,0.2)]">
-                          <BatteryFull size={24} />
-                        </div>
-                        <div>
-                          <h4 className="text-white font-bold text-lg sm:text-xl">Първа колона</h4>
-                          <p className="text-brand font-black text-[10px] sm:text-xs uppercase tracking-wider">100% покрити нужди</p>
-                        </div>
-                      </div>
-                      
-                      <ul className="space-y-4 text-sm sm:text-base">
-                        <li className="flex gap-3 text-zinc-300">
-                          <Droplets className="text-brand shrink-0" size={20} />
-                          <span>Имат чиста вода от чешмата.</span>
-                        </li>
-                        <li className="flex gap-3 text-zinc-300">
-                          <Utensils className="text-brand shrink-0" size={20} />
-                          <span>Хладилник с храна и за утре.</span>
-                        </li>
-                        <li className="flex gap-3 text-zinc-300">
-                          <HomeIcon className="text-brand shrink-0" size={20} />
-                          <span>Легло, покрив, обувки без дупки.</span>
-                        </li>
-                        <li className="flex gap-3 text-zinc-300">
-                          <GraduationCap className="text-brand shrink-0" size={20} />
-                          <span>Телефон, училище, и лекар, ако ги заболи.</span>
-                        </li>
-                      </ul>
-                      <div className="pt-4 border-t border-brand/10">
-                        <p className="text-white font-bold text-base sm:text-lg italic">Всичко е покрито. Всичко.</p>
-                      </div>
-                    </div>
+            {/* Toggle Show More SPASEN Details Button */}
+            <div className="w-full flex justify-center pt-4 sm:pt-6">
+              <motion.button
+                onClick={() => {
+                  if (showSpasenDetails) {
+                    setShowSpasenDetails(false);
+                    const el = document.getElementById('mission');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    setShowSpasenDetails(true);
+                  }
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center gap-2 rounded-full text-xs sm:text-sm font-black transition-all bg-brand text-[#0a1612] hover:bg-white h-12 px-8 shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_30px_rgba(0,229,153,0.5)] uppercase tracking-wider w-full sm:w-auto"
+              >
+                {showSpasenDetails ? 'Скрий подробностите за проекта' : 'Научи как работи СПАСЕН'}
+                <ArrowRight size={16} className={cn("transition-transform duration-300", showSpasenDetails && "rotate-90")} />
+              </motion.button>
+            </div>
 
-                    {/* Column 2 - 30% */}
-                    <div className="bg-white/5 border border-white/10 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-zinc-400">
-                          <BatteryMedium size={24} />
-                        </div>
-                        <div>
-                          <h4 className="text-white font-bold text-lg sm:text-xl">Втора колона</h4>
-                          <p className="text-zinc-500 font-black text-[10px] sm:text-xs uppercase tracking-wider">30% покрити нужди</p>
-                        </div>
-                      </div>
-                      
-                      <ul className="space-y-4 text-sm sm:text-base">
-                        <li className="flex gap-3 text-zinc-400">
-                          <Utensils className="text-zinc-600 shrink-0" size={20} />
-                          <span>Имат нещо за ядене днес, а за утре не знаят.</span>
-                        </li>
-                        <li className="flex gap-3 text-zinc-400">
-                          <Droplets className="text-zinc-600 shrink-0" size={20} />
-                          <span>Водата, която пият, не е сигурна.</span>
-                        </li>
-                        <li className="flex gap-3 text-zinc-400">
-                          <HomeIcon className="text-zinc-600 shrink-0" size={20} />
-                          <span>Обувките са едни. Ученическите пособия ги няма.</span>
-                        </li>
-                        <li className="flex gap-3 text-zinc-400">
-                          <Pill className="text-zinc-600 shrink-0" size={20} />
-                          <span>Лекарството струва повече от седмичния доход.</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="text-center p-5 sm:p-8 rounded-2xl bg-brand/5 border border-brand/20 shadow-[0_0_30px_rgba(0,229,153,0.1)]">
-                  <h4 className="text-brand font-black text-xl sm:text-2xl mb-4">Честният въпрос</h4>
-                  <p className="text-white text-base sm:text-xl">Ако четеш това на телефон, на топло, с вода на две крачки, ти си от <span className="text-brand font-bold underline decoration-brand/30 underline-offset-4">първата колона</span>. Няма как да не си.</p>
-                </div>
-
-                <div className="bg-white/5 border border-white/10 p-5 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand">
-                      <Target size={24} />
-                    </div>
-                    <h4 className="text-white font-bold text-xl sm:text-2xl">100% нужди = 100% мотиви</h4>
-                  </div>
-                  
-                  <div className="space-y-6 text-sm sm:text-base leading-relaxed">
-                    <p className="text-zinc-300">
-                      Когато нуждите ти са покрити 100%, ти имаш 100% от мотивите си свободни. Можеш да мислиш за бъдещето. Да учиш. Да мечтаеш. Умът ти е свободен да гради, защото не е зает да оцелява.
-                    </p>
+            <AnimatePresence mode="wait">
+              {showSpasenDetails && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  className="pt-6 sm:pt-10 border-t border-brand/10 overflow-hidden"
+                >
+                  <div className="text-zinc-400 space-y-10 sm:space-y-16 leading-relaxed">
                     
-                    <div className="pl-6 border-l-2 border-brand/30 space-y-4">
-                      <h5 className="text-white font-medium text-lg">А когато са покрити само 30%?</h5>
-                      <p className="text-zinc-400">
-                        Тогава мотивите ти са същите 30%. Не защото си по-малко способен. Цялата ти енергия отива в едно: как да се справиш с проблема. Няма място за мечти и развитие, а за оцеляване. Липсва им пространство.
+                    {/* Пътят на едно дарение */}
+                    <div className="space-y-8 pt-4">
+                      <div className="text-center space-y-3">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 text-brand rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border border-brand/20">
+                          <Sparkles size={12} />
+                          Интерактивен процес
+                        </div>
+                        <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight uppercase">Пътят на едно дарение</h3>
+                        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+                          Виж как физическата кутия и софтуерната система си взаимодействат, за да превърнат дарителството в траен навик:
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                        {/* Step 1 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">01</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Wallet size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Изваждаш рестото</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Изваждаш рестото от джоба си след покупка в училище.
+                          </p>
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">02</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <QrCode size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Показваш твоя QR код</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Показваш твоя уникален QR код от телефона си на вградения скенер.
+                          </p>
+                        </div>
+
+                        {/* Step 3 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">03</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Scan size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Скенерът те разпознава</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Скенерът те разпознава и механичната преграда за монети се отваря.
+                          </p>
+                        </div>
+
+                        {/* Step 4 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">04</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Cpu size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Пускаш монетата</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Пускаш я. Кутията я разпознава автоматично и я записва на твое име.
+                          </p>
+                        </div>
+
+                        {/* Step 5 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">05</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Database size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Начисляване на точки</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Точките ти се начисляват за деня и класацията в сайта се обновява.
+                          </p>
+                        </div>
+
+                        {/* Step 6 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">06</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <ClipboardCheck size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Месечно преброяване</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            В края на месеца монетите се броят и събраната сума се сверява със сайта.
+                          </p>
+                        </div>
+
+                        {/* Step 7 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">07</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Heart size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Към избраната кауза</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Парите отиват през училището директно към избраната кауза.
+                          </p>
+                        </div>
+
+                        {/* Step 8 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">08</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Eye size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Публичен отчет</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Разгласяваме публично подробен отчет колко е събрано и къде е отишло.
+                          </p>
+                        </div>
+
+                        {/* Step 9 */}
+                        <div className="bg-[#020806] border border-white/5 p-5 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-brand/30 transition-all shadow-md">
+                          <div className="absolute top-3 right-4 text-brand/10 text-4xl sm:text-5xl font-black select-none pointer-events-none group-hover:text-brand/20 transition-colors">09</div>
+                          <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand mb-4">
+                            <Trophy size={20} />
+                          </div>
+                          <h4 className="text-white font-bold text-base sm:text-lg mb-2">Топ дарители</h4>
+                          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                            Обявяваме месечните топ дарители, за да мотивираме споделеното утре.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Intro & The Two Columns */}
+                    <div className="space-y-6 sm:space-y-10 pt-8 sm:pt-12 border-t border-brand/10">
+                      <div className="text-center space-y-4">
+                        <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight">Представи си две колони</h3>
+                        <p className="text-zinc-400 text-sm sm:text-lg max-w-2xl mx-auto">Какво означава да имаш покрити нужди и какво означава да се бориш за тях.</p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
+                        {/* Column 1 - 100% */}
+                        <div className="bg-brand/5 border border-brand/20 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden group">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-[50px] -mr-10 -mt-10 rounded-full"></div>
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand shadow-[0_0_15px_rgba(0,229,153,0.2)]">
+                              <BatteryFull size={24} />
+                            </div>
+                            <div>
+                              <h4 className="text-white font-bold text-lg sm:text-xl">Първа колона</h4>
+                              <p className="text-brand font-black text-[10px] sm:text-xs uppercase tracking-wider">100% покрити нужди</p>
+                            </div>
+                          </div>
+                          
+                          <ul className="space-y-4 text-sm sm:text-base">
+                            <li className="flex gap-3 text-zinc-300">
+                              <Droplets className="text-brand shrink-0" size={20} />
+                              <span>Имат чиста вода от чешмата.</span>
+                            </li>
+                            <li className="flex gap-3 text-zinc-300">
+                              <Utensils className="text-brand shrink-0" size={20} />
+                              <span>Хладилник с храна и за утре.</span>
+                            </li>
+                            <li className="flex gap-3 text-zinc-300">
+                              <HomeIcon className="text-brand shrink-0" size={20} />
+                              <span>Легло, покрив, обувки без дупки.</span>
+                            </li>
+                            <li className="flex gap-3 text-zinc-300">
+                              <GraduationCap className="text-brand shrink-0" size={20} />
+                              <span>Телефон, училище, и лекар, ако ги заболи.</span>
+                            </li>
+                          </ul>
+                          <div className="pt-4 border-t border-brand/10">
+                            <p className="text-white font-bold text-base sm:text-lg italic">Всичко е покрито. Всичко.</p>
+                          </div>
+                        </div>
+
+                        {/* Column 2 - 30% */}
+                        <div className="bg-white/5 border border-white/10 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-zinc-400">
+                              <BatteryMedium size={24} />
+                            </div>
+                            <div>
+                              <h4 className="text-white font-bold text-lg sm:text-xl">Втора колона</h4>
+                              <p className="text-zinc-500 font-black text-[10px] sm:text-xs uppercase tracking-wider">30% покрити нужди</p>
+                            </div>
+                          </div>
+                          
+                          <ul className="space-y-4 text-sm sm:text-base">
+                            <li className="flex gap-3 text-zinc-400">
+                              <Utensils className="text-zinc-600 shrink-0" size={20} />
+                              <span>Имат нещо за ядене днес, а за утре не знаят.</span>
+                            </li>
+                            <li className="flex gap-3 text-zinc-400">
+                              <Droplets className="text-zinc-600 shrink-0" size={20} />
+                              <span>Водата, която пият, не е сигурна.</span>
+                            </li>
+                            <li className="flex gap-3 text-zinc-400">
+                              <HomeIcon className="text-zinc-600 shrink-0" size={20} />
+                              <span>Обувките са едни. Ученическите пособия ги няма.</span>
+                            </li>
+                            <li className="flex gap-3 text-zinc-400">
+                              <Pill className="text-zinc-600 shrink-0" size={20} />
+                              <span>Лекарството струва повече от седмичния доход.</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-center p-5 sm:p-8 rounded-2xl bg-brand/5 border border-brand/20 shadow-[0_0_30px_rgba(0,229,153,0.1)]">
+                      <h4 className="text-brand font-black text-xl sm:text-2xl mb-4">Честният въпрос</h4>
+                      <p className="text-white text-base sm:text-xl">Ако четеш това на телефон, на топло, с вода на две крачки, ти си от <span className="text-brand font-bold underline decoration-brand/30 underline-offset-4">първата колона</span>. Няма как да не си.</p>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-5 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand">
+                          <Target size={24} />
+                        </div>
+                        <h4 className="text-white font-bold text-xl sm:text-2xl">100% нужди = 100% мотиви</h4>
+                      </div>
+                      
+                      <div className="space-y-6 text-sm sm:text-base leading-relaxed">
+                        <p className="text-zinc-300">
+                          Когато нуждите ти са покрити 100%, ти имаш 100% от мотивите си свободни. Можеш да мислиш за бъдещето. Да учиш. Да мечтаеш. Умът ти е свободен да гради, защото не е зает да оцелява.
+                        </p>
+                        
+                        <div className="pl-6 border-l-2 border-brand/30 space-y-4">
+                          <h5 className="text-white font-medium text-lg">А когато са покрити само 30%?</h5>
+                          <p className="text-zinc-400">
+                            Тогава мотивите ти са същите 30%. Не защото си по-малко способен. Цялата ти енергия отива в едно: как да се справиш с проблема. Няма място за мечти и развитие, а за оцеляване. Липсва им пространство.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-[#0a1612]/80 p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/5 space-y-6 sm:space-y-8 relative my-8">
+                      <div className="flex items-center gap-4 mb-2">
+                        <Wallet className="text-brand" size={32} />
+                        <h4 className="text-white font-bold text-xl sm:text-3xl">Истинската стойност на парите</h4>
+                      </div>
+                      
+                      <div className="space-y-4 text-sm sm:text-base">
+                        <p>Ученик получава пари за деня. Част от тях отиват за истински нужди, каквито са вода и храна. А останалите? Сокчета. Вафли. Дъвки. Чипс. Неща, които изяждаш за три минути и забравяш до края на часа.</p>
+                        <p className="text-white italic">Направи си сметката сам: колко от парите ти отидоха за нещо, което ти трябваше, и колко за нещо, което просто ти се прииска?</p>
+                        <p>Ако си честен, вторият процент е по-голям. <span className="text-brand font-medium">За човек от втората колона същите тези пари са храна за деня / важно лекарство / възможност за мечти.</span></p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-6 sm:space-y-8">
+                      <div className="flex items-center gap-4">
+                        <Coins className="text-brand" size={32} />
+                        <h4 className="text-white font-bold text-2xl sm:text-3xl">Дори рестото стига</h4>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-sm sm:text-base">
+                        <div className="space-y-4">
+                          <p>Не ти казвам да се откажеш от вафлата. Казвам ти: <span className="text-white font-bold">дай рестото.</span></p>
+                          <p>Тези 10, 20, 50 цента, които се въргалят в джоба ти.</p>
+                        </div>
+                        <div className="p-5 sm:p-6 rounded-2xl bg-[#0a1612] border border-brand/20">
+                          <p className="text-brand font-black text-xl mb-2">50 евро / ден</p>
+                          <p>Едно училище с 500 ученици. Всеки дава по 10 цента. Това са над 1000 евро на месец. От пари, които не значат нищо за нас, а за другите са всичко (лекарство, храна).</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-brand/5 border border-brand/20 p-5 sm:p-10 rounded-2xl sm:rounded-3xl space-y-8 relative overflow-hidden">
+                      <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand/10 blur-[50px] rounded-full pointer-events-none" />
+                      <div className="flex items-center gap-4 relative z-10">
+                        <Repeat className="text-brand" size={32} />
+                        <h4 className="text-white font-bold text-2xl sm:text-3xl">Защо постоянството, а не размерът?</h4>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                        <div className="bg-[#020806] border border-white/5 p-6 rounded-2xl space-y-3">
+                          <div className="text-zinc-500 font-bold uppercase tracking-wider text-xs mb-2">Подход 1: Еднократно</div>
+                          <p className="text-white font-medium text-lg">Даряваш 2 евро веднъж.</p>
+                          <p className="text-zinc-400 text-sm leading-relaxed">Действието остава изолирано събитие, което бързо избледнява без да създава устойчив навик.</p>
+                        </div>
+                        
+                        <div className="bg-brand/10 border border-brand/30 p-6 rounded-2xl space-y-3 relative shadow-[0_0_30px_rgba(0,229,153,0.1)] group">
+                          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-brand rounded-l-2xl" />
+                          <div className="text-brand font-bold uppercase tracking-wider text-xs mb-2">Подход 2: Постоянно</div>
+                          <p className="text-white font-medium text-lg">Даряваш по 10 цента всеки ден.</p>
+                          <p className="text-zinc-300 text-sm leading-relaxed">В края на месеца си дал по-малко пари общо, но точките ти в класацията са много повече от тези на човека, который е дал 2 евро веднъж, защото възнаграждаваме ежедневното постоянство.</p>
+                        </div>
+                      </div>
+                      
+                      <blockquote className="relative p-6 sm:px-8 bg-white/5 border border-white/10 rounded-2xl text-zinc-300 italic text-sm sm:text-base z-10">
+                        <span className="text-brand font-bold not-italic mr-2">Силата на малките жестове:</span>
+                        Когато превърнем съпричастността в спонтанен ежедневен жест, ние променяме не само деня на някого, но и изграждаме по-сплотена общност.
+                      </blockquote>
+                    </div>
+
+                    <div className="space-y-6 sm:space-y-8 pt-8 sm:pt-16 border-t border-brand/20 text-center flex flex-col items-center">
+                      <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Мисията в действие</h4>
+                      <p className="text-white text-base sm:text-xl font-medium max-w-3xl">
+                        Всеки малък, съзнателен жест днес изгражда по-силно и съпричастно утре. Обединяваме усилия, за да превърнем благотворителността в естествена и постоянна част от нашето ежедневие.
                       </p>
+                      
+                      <div className="py-6 sm:py-10 w-full flex justify-center">
+                        <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-6 sm:px-10 py-4 sm:py-5 rounded-full uppercase tracking-widest text-xs sm:text-base shadow-[0_0_20px_rgba(0,229,153,0.4)] hover:shadow-[0_0_35px_rgba(0,229,153,0.6)] hover:bg-white transition-all text-center w-full sm:w-auto">
+                          ТЕСТВАЙ ДЕМО ВЕРСИЯТА СЕГА
+                          <ArrowRight size={20} />
+                        </a>
+                      </div>
+                      
+                      <div className="mt-4 p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl max-w-4xl w-full text-center">
+                        <p className="text-white font-medium text-lg sm:text-2xl italic leading-relaxed">
+                          "А парите отиват там, където трябва: при болни деца, при семейства, за които едно лекарство е непосилно. При хора с проблеми, които им пречат да са свободни и да правят това, което искат, както ние можем."
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                <div className="bg-[#0a1612]/80 p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/5 space-y-6 sm:space-y-8 relative my-8">
-                  <div className="flex items-center gap-4 mb-2">
-                    <Wallet className="text-brand" size={32} />
-                    <h4 className="text-white font-bold text-xl sm:text-3xl">Истинската стойност на парите</h4>
-                  </div>
-                  
-                  <div className="space-y-4 text-sm sm:text-base">
-                    <p>Ученик получава пари за деня. Част от тях отиват за истински нужди — вода, храна. А останалите? Сокчета. Вафли. Дъвки. Чипс. Неща, които изяждаш за три минути и забравяш до края на часа.</p>
-                    <p className="text-white italic">Направи си сметката сам: колко от парите ти отидоха за нещо, което ти трябваше, и колко за нещо, което просто ти се прииска?</p>
-                    <p>Ако си честен, вторият процент е по-голям. <span className="text-brand font-medium">За човек от втората колона същите тези пари са храна за деня / важно лекарство / възможност за мечти.</span></p>
-
-                  </div>
-                </div>
-
-                <div className="space-y-6 sm:space-y-8">
-                  <div className="flex items-center gap-4">
-                    <Coins className="text-brand" size={32} />
-                    <h4 className="text-white font-bold text-2xl sm:text-3xl">Дори рестото стига</h4>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-sm sm:text-base">
-                    <div className="space-y-4">
-                      <p>Не ти казвам да се откажеш от вафлата. Казвам ти: <span className="text-white font-bold">дай рестото.</span></p>
-                      <p>Тези 10, 20, 50 цента, които се въргалят в джоба ти.</p>
+                    {/* Collapse Button */}
+                    <div className="flex justify-center pt-8 w-full">
+                      <motion.button
+                        onClick={() => {
+                          setShowSpasenDetails(false);
+                          const el = document.getElementById('mission');
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center justify-center rounded-full text-xs sm:text-sm font-bold transition-all bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white h-12 px-8 border border-white/10 uppercase tracking-widest w-full sm:w-auto"
+                      >
+                        Скрий подробностите
+                      </motion.button>
                     </div>
-                    <div className="p-5 sm:p-6 rounded-2xl bg-[#0a1612] border border-brand/20">
-                      <p className="text-brand font-black text-xl mb-2">50 евро / ден</p>
-                      <p>Едно училище с 500 ученици. Всеки дава по 10 цента. Това са над 1000 евро на месец. От пари, които не значат нищо за нас, а за другите са всичко (лекарство, храна).</p>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="bg-brand/5 border border-brand/20 p-5 sm:p-10 rounded-2xl sm:rounded-3xl space-y-8 relative overflow-hidden">
-                  <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand/10 blur-[50px] rounded-full pointer-events-none" />
-                  <div className="flex items-center gap-4 relative z-10">
-                    <Repeat className="text-brand" size={32} />
-                    <h4 className="text-white font-bold text-2xl sm:text-3xl">Защо постоянството, а не размерът?</h4>
                   </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-                    <div className="bg-[#020806] border border-white/5 p-6 rounded-2xl space-y-3">
-                      <div className="text-zinc-500 font-bold uppercase tracking-wider text-xs mb-2">Подход 1: Еднократно</div>
-                      <p className="text-white font-medium text-lg">Даряваш 2 евро веднъж.</p>
-                      <p className="text-zinc-400 text-sm leading-relaxed">Чувстваш се добре за деня, но след това забравяш. Действието остава изолирано събитие.</p>
-                    </div>
-                    
-                    <div className="bg-brand/10 border border-brand/30 p-6 rounded-2xl space-y-3 relative shadow-[0_0_30px_rgba(0,229,153,0.1)] group">
-                      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-brand rounded-l-2xl" />
-                      <div className="text-brand font-bold uppercase tracking-wider text-xs mb-2">Подход 2: Постоянно</div>
-                      <p className="text-white font-medium text-lg">Даряваш по 10 цента всеки ден.</p>
-                      <p className="text-zinc-300 text-sm leading-relaxed">За месец си дал по-малко пари общо, но си направил нещо безценно: <span className="text-brand font-bold">превърнал си даването в част от себе си.</span></p>
-                    </div>
-                  </div>
-                  
-                  <blockquote className="relative p-6 sm:px-8 bg-white/5 border border-white/10 rounded-2xl text-zinc-300 italic text-sm sm:text-base z-10">
-                    <span className="text-brand font-bold not-italic mr-2">Силата на малките жестове:</span>
-                    Когато превърнем съпричастността в спонтанен ежедневен жест, ние променяме не само деня на някого, но и изграждаме по-сплотена общност.
-                  </blockquote>
-                </div>
-
-                <div className="space-y-6 sm:space-y-8 pt-8 sm:pt-16 border-t border-brand/20 text-center flex flex-col items-center">
-                  <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Инициативата СПАСЕН</h4>
-                  <p className="text-white text-base sm:text-xl font-medium max-w-3xl">Обединяваме усилия в ПМГ „Акад. Иван Гюзелев“, за да изградим среда на взаимна подкрепа.</p>
-                  <p className="text-sm sm:text-base max-w-2xl text-zinc-400">Чрез поставянето на двете физически кутии (в стола и лавката на училището), всяко дарено ресто отива директно за подкрепа на деца и семейства в нужда. Тук всяка малка монета има значение.</p>
-                  
-                  <div className="py-6 sm:py-10 w-full flex justify-center">
-                    <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-6 sm:px-10 py-4 sm:py-5 rounded-full uppercase tracking-widest text-xs sm:text-base shadow-[0_0_20px_rgba(0,229,153,0.4)] hover:shadow-[0_0_35px_rgba(0,229,153,0.6)] hover:bg-white transition-all text-center w-full sm:w-auto">
-                      ТЕСТВАЙ ДЕМО ВЕРСИЯТА СЕГА
-                      <ArrowRight size={20} />
-                    </a>
-                  </div>
-
-                  <div className="max-w-3xl space-y-4 text-sm sm:text-base text-zinc-400">
-                    <p>Това не е просто дарителска акция — това е начин да направим съпричастността част от нашето ежедневие.</p>
-                    <p>Когато цяло училище се обедини в тези малки, постоянни жестове, резултатът е реална и навременна помощ за тези, които имат най-голяма нужда.</p>
-                  </div>
-                  
-                  <div className="mt-8 sm:mt-12 p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl max-w-4xl w-full text-center">
-                    <p className="text-white font-medium text-lg sm:text-2xl italic leading-relaxed">
-                      "А парите отиват там, където трябва — при болни деца, при семейства, за които едно лекарство е непосилно. При хора с проблеми, които им пречат да са свободни и да правят това, което искат, както ние можем."
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
           </div>
         </motion.div>
@@ -549,7 +710,7 @@ export default function Home() {
                       Да говоря за това, което ме изгражда
                     </h3>
                     <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-                      Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят – <span className="text-brand font-bold">моята вяра в Бог</span>. Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:
+                      Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят, а именно <span className="text-brand font-bold">моята вяра в Бог</span>. Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:
                     </p>
                   </div>
 
@@ -571,7 +732,7 @@ export default function Home() {
                       Основен урок
                     </h4>
                     <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
-                      Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече – <span className="text-brand font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</span>
+                      Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече: <span className="text-brand font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</span>
                     </p>
                   </div>
                 </div>
@@ -610,7 +771,7 @@ export default function Home() {
         <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto">
           <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">Свържете се с мен</h2>
           <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed">
-            Вярвам, че най-добрите идеи се раждат в общуването с хора, които споделят сходни ценности. Ако припознаваш себе си в написаното тук, търсиш партньорство или просто искаш да обменим мисли — ще се радвам да се свържем.
+            Вярвам, че най-добрите идеи се раждат в общуването с хора, които споделят сходни ценности. Ако припознаваш себе си в написаното тук, търсиш партньорство или просто искаш да обменим мисли, ще се радвам да се свържем.
           </p>
         </div>
 
