@@ -369,7 +369,6 @@ export default function Home() {
                             </div>
                             <div>
                               <h4 className="text-zinc-400 font-bold text-lg sm:text-xl">Обикновена кутия</h4>
-                              <p className="text-zinc-600 font-black text-[10px] sm:text-xs uppercase tracking-wider">Традиционен пасивен подход</p>
                             </div>
                           </div>
 
@@ -395,13 +394,6 @@ export default function Home() {
                                 Нямаш идея колко пари има вътре, кога се събират, къде отиват и дали реално стигат до каузата.
                               </div>
                             </li>
-                            <li className="flex gap-3 text-zinc-400">
-                              <XCircle className="text-red-500/60 shrink-0 mt-0.5" size={20} />
-                              <div>
-                                <strong className="text-zinc-300 block font-semibold">Инцидентно дарителство</strong>
-                                Разчита на редки импулсивни жестове при организирани събития, без да създава траен навик у децата.
-                              </div>
-                            </li>
                           </ul>
                         </div>
 
@@ -414,7 +406,6 @@ export default function Home() {
                             </div>
                             <div>
                               <h4 className="text-white font-bold text-lg sm:text-xl">Системата СПАСЕН</h4>
-                              <p className="text-brand font-black text-[10px] sm:text-xs uppercase tracking-wider">Интерактивно дигитално бъдеще</p>
                             </div>
                           </div>
 
@@ -440,61 +431,11 @@ export default function Home() {
                                 Всички данни се отразяват на момента в сайта. Има подробен дигитален одит, публични отчети и пълна проследимост на каузите.
                               </div>
                             </li>
-                            <li className="flex gap-3 text-zinc-300">
-                              <CheckCircle2 className="text-brand shrink-0 mt-0.5" size={20} />
-                              <div>
-                                <strong className="text-white block font-semibold">Изграждане на ежедневен навик</strong>
-                                Фокусира се върху дребното ресто за неща, които не ни трябват (сок, чипс), превръщайки дарителството в спонтанен ежедневен навик.
-                              </div>
-                            </li>
                           </ul>
                         </div>
                       </div>
                     </div>
 
-                    {/* Student-led Initiative Highlight Section */}
-                    <div className="bg-brand/5 border border-brand/20 p-6 sm:p-10 rounded-2xl sm:rounded-3xl space-y-6 relative overflow-hidden my-8 sm:my-12">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-[50px] -mr-10 -mt-10 rounded-full pointer-events-none"></div>
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-brand/10 pb-4">
-                        <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand shrink-0 shadow-[0_0_15px_rgba(0,229,153,0.2)]">
-                          <Users size={24} />
-                        </div>
-                        <div>
-                          <h4 className="text-white font-black text-xl sm:text-2xl uppercase tracking-tight">Изцяло от ученици, за ученици</h4>
-                          <p className="text-brand font-bold text-xs uppercase tracking-wider">100% авторска инициатива и управление</p>
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm sm:text-base text-zinc-300 leading-relaxed">
-                        <div className="space-y-4">
-                          <p className="text-xl font-medium text-white">
-                            Проектът е изцяло задвижван от ученици.
-                          </p>
-                          <p>
-                            Това не е корпоративна инициатива или външна програма, а реален опит на младежи да направят активна промяна в своето училище.
-                          </p>
-                        </div>
-                        <div className="space-y-4 bg-white/5 p-5 rounded-2xl border border-white/5">
-                          <h5 className="text-white font-bold text-base mb-2 flex items-center gap-2">
-                            <Sparkles className="text-brand shrink-0" size={18} />
-                            Защо това има огромно значение?
-                          </h5>
-                          <ul className="space-y-3 text-xs sm:text-sm text-zinc-400">
-                            <li className="flex gap-2">
-                              <span className="text-brand font-bold">✓</span>
-                              <span><strong className="text-white">Взаимно вдъхновение:</strong> Даряваш по-свободно, когато виждаш труда и чистата енергия на свои съученици.</span>
-                            </li>
-                            <li className="flex gap-2">
-                              <span className="text-brand font-bold">✓</span>
-                              <span><strong className="text-white">Пълна автономност:</strong> Учениците сами организират поддръжката, отчитането и гласуването за конкретни каузи.</span>
-                            </li>
-                            <li className="flex gap-2">
-                              <span className="text-brand font-bold">✓</span>
-                              <span><strong className="text-white">Реални инженерни умения:</strong> Проектът задвижва реално учене по програмиране, електроника, 3D дизайн и управление на проекти.</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
 
                     {/* Intro & The Two Columns */}
                     <div className="space-y-6 sm:space-y-10 pt-8 sm:pt-12 border-t border-brand/10">
@@ -609,8 +550,7 @@ export default function Home() {
                       
                       <div className="space-y-4 text-sm sm:text-base">
                         <p>Ученик получава пари за деня. Част от тях отиват за истински нужди, каквито са вода и храна. А останалите? Сокчета. Вафли. Дъвки. Чипс. Неща, които изяждаш за три минути и забравяш до края на часа.</p>
-                        <p className="text-white italic">Направи си сметката сам: колко от парите ти отидоха за нещо, което ти трябваше, и колко за нещо, което просто ти се прииска?</p>
-                        <p>Ако си честен, вторият процент е по-голям. <span className="text-brand font-medium">За човек от втората колона същите тези пари са храна за деня / важно лекарство / възможност за мечти.</span></p>
+                        <p>При направено запитване 26 от 26 ученици споделят, че могат и без тях и най-често тези покупки са импулсивни и необмислени.</p>
                       </div>
                     </div>
 
@@ -653,17 +593,10 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <blockquote className="relative p-6 sm:px-8 bg-white/5 border border-white/10 rounded-2xl text-zinc-300 italic text-sm sm:text-base z-10">
-                        <span className="text-brand font-bold not-italic mr-2">Силата на малките жестове:</span>
-                        Когато превърнем съпричастността в спонтанен ежедневен жест, ние променяме не само деня на някого, но и изграждаме по-сплотена общност.
-                      </blockquote>
                     </div>
 
                     <div className="space-y-6 sm:space-y-8 pt-8 sm:pt-16 border-t border-brand/20 text-center flex flex-col items-center">
                       <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Мисията в действие</h4>
-                      <p className="text-white text-base sm:text-xl font-medium max-w-3xl">
-                        Всеки малък, съзнателен жест днес изгражда по-силно и съпричастно утре. Обединяваме усилия, за да превърнем благотворителността в естествена и постоянна част от нашето ежедневие.
-                      </p>
                       
                       <div className="py-6 sm:py-10 w-full flex justify-center">
                         <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-6 sm:px-10 py-4 sm:py-5 rounded-full uppercase tracking-widest text-xs sm:text-base shadow-[0_0_20px_rgba(0,229,153,0.4)] hover:shadow-[0_0_35px_rgba(0,229,153,0.6)] hover:bg-white transition-all text-center w-full sm:w-auto">
