@@ -227,7 +227,7 @@ export default function Home() {
                         </div>
                         <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight uppercase">Пътят на едно дарение</h3>
                         <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
-                          Виж как физическата кутия и софтуерната система си взаимодействат, за да превърнат дарителството в траен навик:
+                          Виж как физическата кутия и софтуерната система си взаимодействат:
                         </p>
                       </div>
 
@@ -356,7 +356,7 @@ export default function Home() {
                         </div>
                         <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight uppercase">СПАСЕН срещу Обикновена кутия</h3>
                         <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
-                          Защо СПАСЕН не е просто поредната дървена кутия, оставена на самотек в училищния коридор?
+                          Защо СПАСЕН се различава от една обикновена кутия
                         </p>
                       </div>
 

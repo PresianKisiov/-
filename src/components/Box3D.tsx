@@ -476,7 +476,7 @@ export default function Box3D() {
             <span className="text-xs sm:text-sm font-bold">Прозрачност</span>
           </div>
           <p className="text-[10px] leading-relaxed text-zinc-400">
-            Всяка монета отива директно за покриване на медицински разходи.
+            Всяка монета отива директно за избраната кауза от учениците.
           </p>
         </button>
 
