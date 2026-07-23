@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 const navLinks = [
   { name: 'Начало', path: '#home' },
   { name: 'СПАСЕН', path: '#mission' },
-  { name: 'Речи', path: '#speech' },
+  { name: 'За мен', path: '#about' },
   { name: 'Контакти', path: '#contact' },
 ];
 
@@ -242,7 +242,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
 
               <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
                 <div className="space-y-1">
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-black">Координати</p>
+                  <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-black">Контакти</p>
                   <p className="text-white font-medium">preskokisiov@gmail.com</p>
                 </div>
                 <div className="flex gap-4">

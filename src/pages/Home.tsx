@@ -1,34 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database, XCircle, CheckCircle2 } from 'lucide-react';
+import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database, XCircle, CheckCircle2, User } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Box3D from '../components/Box3D';
 
-const timeline = [
-  {
-    period: '11-12г.',
-    title: 'Откриване на нови светове',
-    desc: 'Тогава за първи път прочетох книги, които разшириха мирогледа ми и ми показаха нови възможности в света.',
-    lesson: 'Тогава разбрах колко е важно четенето и как то разширява хоризонтите ми.'
-  },
-  {
-    period: '12-14г.',
-    title: 'Опити и израстване',
-    desc: 'Време на интензивни опити, нови идеи и постоянно развитие в различни посоки.',
-    lesson: 'Не всичко е толкова лесно, колкото изглежда, и socialните мрежи често изкривяват представата за успеха.'
-  },
-  {
-    period: '14+ г.',
-    title: 'Реализация и проекти',
-    desc: 'Изграждам умения, взаимоотношения, правилно говорене пред публика и реализирам идеи в конкретни проекти.',
-    lesson: 'Тепърва предстои...'
-  }
-];
-
 export default function Home() {
-  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-  const [showSpeeches, setShowSpeeches] = useState(false);
   const [showSpasenDetails, setShowSpasenDetails] = useState(false);
 
   useEffect(() => {
@@ -98,21 +75,10 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-6 sm:space-y-10 relative w-full max-w-5xl z-10 mx-auto text-center lg:text-left lg:pl-4"
+          className="space-y-6 sm:space-y-10 relative w-full max-w-5xl z-10 mx-auto text-center lg:text-left px-4 sm:px-6 lg:pl-4"
         >
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="inline-flex items-center"
-          >
-            <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-zinc-400 text-[9px] sm:text-xs font-semibold tracking-widest uppercase backdrop-blur-md">
-              Личен сайт
-            </span>
-          </motion.div>
-          
           <div className="flex items-baseline gap-2 sm:gap-4 justify-center lg:justify-start py-1">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none flex flex-wrap justify-center lg:justify-start">
+            <h1 className="text-[2.75rem] sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none flex flex-wrap justify-center lg:justify-start">
               {"Пресиян Кисьов".split(" ").map((word, wordIdx) => (
                 <span key={wordIdx} className="flex mr-[0.2em] last:mr-0">
                   {word.split("").map((char, i) => (
@@ -153,16 +119,6 @@ export default function Home() {
                 </span>
               ))}
             </h1>
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="mt-2 text-brand/80 font-medium tracking-widest uppercase text-[10px] sm:text-xs flex items-center justify-center lg:justify-start gap-2"
-            >
-              <span className="w-1 h-1 rounded-full bg-brand" />
-              На 15 години
-              <span className="w-1 h-1 rounded-full bg-brand" />
-            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -170,7 +126,7 @@ export default function Home() {
       {/* Mission & Values Section */}
       <motion.section 
         id="mission" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-8 sm:pt-16"
+        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-8 sm:pt-16 px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
@@ -754,142 +710,42 @@ export default function Home() {
 
 
 
-      {/* Speech Section */}
+      {/* About Me Section */}
       <motion.section 
-        id="speech" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 max-w-5xl mx-auto pt-12 sm:pt-32 flex flex-col items-center"
+        id="about" 
+        className="scroll-mt-32 space-y-8 sm:space-y-12 max-w-5xl mx-auto pt-12 sm:pt-32 px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-brand/10 text-brand border border-brand/20 mb-2">
-            <Mic size={16} />
-            <span className="text-xs sm:text-sm font-black uppercase tracking-widest">Публични изяви</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tighter text-white">Речи и споделяне</h2>
-          <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed">
-            Вярвам, че истинското въздействие се случва, когато споделиш пътя си. Тук са моментите, в които застанах пред публика, за да предам това, в което вярвам.
-          </p>
+        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tighter text-white">За мен</h2>
         </div>
 
-        <AnimatePresence mode="wait">
-        {!showSpeeches ? (
-          <motion.div
-            key="show-btn"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="w-full flex justify-center pt-4"
-          >
-            <motion.button
-              onClick={() => setShowSpeeches(true)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 rounded-full text-sm sm:text-base font-black transition-all bg-brand text-[#0a1612] hover:bg-white h-14 px-10 shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_30px_rgba(0,229,153,0.5)] uppercase tracking-wider w-full sm:w-auto"
-            >
-              Отключи речите
-              <ArrowRight size={20} />
-            </motion.button>
-          </motion.div>
-        ) : (
-          <motion.div 
-            key="speech-content"
-            initial={{ opacity: 0, height: 0, y: 40 }}
-            animate={{ opacity: 1, height: "auto", y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -40 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full space-y-12 overflow-hidden"
-          >
-            <div className="space-y-4 text-center pt-8">
-              <h3 className="text-2xl sm:text-4xl font-black tracking-tighter text-white">Първа реч</h3>
-              <p className="text-brand font-medium text-sm sm:text-lg">Стъпката извън зоната на комфорт и силата да заявиш себе си.</p>
-            </div>
+        <div className="relative p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-[#0a1612]/60 border border-brand/20 overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.05)]">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 blur-[100px] rounded-full pointer-events-none" />
+          
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10 items-center">
             
-            <div className="relative p-5 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-[#0a1612]/60 border border-brand/20 overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.05)]">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 blur-[100px] rounded-full pointer-events-none" />
+            {/* Content Side */}
+            <div className="flex-1 space-y-6 sm:space-y-8">
               
-              <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 relative z-10">
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative w-full lg:w-5/12 h-[300px] sm:h-[450px] rounded-2xl sm:rounded-[2rem] overflow-hidden border border-brand/20 group shrink-0"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#020806] via-black/40 to-transparent z-10" />
-                  <motion.img 
-                    src="https://drive.google.com/thumbnail?id=11L0VHplxg4OQwY1kC2oEswBmlGiL5-Ud&sz=w1000" 
-                    alt="Моята първа реч" 
-                    className="absolute inset-0 w-full h-full object-cover object-[54%_25%] transition-transform duration-700"
-                    whileInView={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1475721025505-c0a0b978438c?q=80&w=1000&auto=format&fit=crop';
-                    }}
-                  />
-                  <div className="absolute bottom-6 left-6 right-6 z-20">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/20 text-brand text-xs font-black uppercase tracking-widest border border-brand/30 backdrop-blur-md mb-4">
-                      <Calendar size={14} />
-                      26 Февруари
-                    </div>
-                    <p className="text-white font-bold text-xl sm:text-2xl leading-tight">Споделяне на лични ценности</p>
-                  </div>
-                </motion.div>
-
-                <div className="flex-1 space-y-8 sm:space-y-10 flex flex-col justify-center">
-                  <div className="space-y-4">
-                    <h3 className="text-3xl sm:text-4xl font-black tracking-tighter text-white leading-tight">
-                      Да говоря за това, което ме изгражда
-                    </h3>
-                    <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-                      Застанах пред съучениците си, за да споделя своя най-силен морален компас в един шумен свят, а именно <span className="text-brand font-bold">моята вяра в Бог</span>. Въпреки първоначалното притеснение от чуждото мнение, едни конкретни думи ми дадоха увереност:
-                    </p>
-                  </div>
-
-                  <blockquote className="relative p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl">
-                    <div className="absolute top-4 left-4 text-brand/20 text-6xl font-serif leading-none">"</div>
-                    <p className="relative z-10 text-white font-medium text-lg sm:text-xl italic pl-6">
-                      Не се срамувайте от Човешкия Син, защото и Той ще се срамува от вас
-                    </p>
-                  </blockquote>
-
-                  <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-                    Това преобърна нагласата ми. Осъзнах, че страхът е илюзия. Когато говориш искрено за ценностите си, преодоляваш собствените си бариери и печелиш уважението на хората, които наистина имат значение.
-                  </p>
-
-                  <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#020806] border border-white/5 relative overflow-hidden group">
-                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-brand" />
-                    <h4 className="text-white font-bold mb-3 flex items-center gap-2 text-lg sm:text-xl">
-                      <Lightbulb size={20} className="text-brand" />
-                      Основен урок
-                    </h4>
-                    <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
-                      Действай си по своя път и не вземай мнението на хора, които не са там, където ти искаш да бъдеш. И най-вече: <span className="text-brand font-medium">не се срамувай да говориш за неща, които те интересуват и изграждат.</span>
-                    </p>
-                  </div>
-                </div>
+              <div className="space-y-4 text-zinc-400 text-sm sm:text-lg leading-relaxed">
+                <p>
+                  Казвам се Пресиян, на 15 години съм и живея в Габрово. Обичам да правя неща. Сайтове, проекти, каквото ми дойде на ума. Не съм от хората, които могат да седят и да чакат времето да минава безцелно, постоянно си намирам занимания и се старая да се развивам.
+                </p>
+                <p>
+                  Опитвам се да не си губя времето и да не давам обещания, които не мога да изпълня. Понякога успявам, понякога не, но поне се старая. Постоянно ми хрумват идеи, за които нямам достатъчно време.
+                </p>
+                <p>
+                  Най-големият и важен проект за мен е <span className="text-brand font-bold">СПАСЕН</span>, за който може да разгледате по-подробно тук в сайта.
+                </p>
               </div>
             </div>
 
-            <div className="flex justify-center pt-4 w-full">
-              <motion.button
-                onClick={() => {
-                  setShowSpeeches(false);
-                  document.getElementById('speech')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center rounded-full text-xs sm:text-sm font-bold transition-all bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white h-12 px-8 border border-white/10 uppercase tracking-widest w-full sm:w-auto"
-              >
-                Скрий речите
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
-        </AnimatePresence>
+          </div>
+        </div>
       </motion.section>
 
 
@@ -897,20 +753,17 @@ export default function Home() {
       {/* Contact Section */}
       <motion.section 
         id="contact" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-12 sm:pt-32"
+        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-12 sm:pt-32 px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto">
-          <h2 className="text-xl sm:text-4xl font-bold tracking-tighter text-white">Свържете се с мен</h2>
-          <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed">
-            Вярвам, че най-добрите идеи се раждат в общуването с хора, които споделят сходни ценности. Ако припознаваш себе си в написаното тук, търсиш партньорство или просто искаш да обменим мисли, ще се радвам да се свържем.
-          </p>
+        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tighter text-white">Свържете се с мен</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
           <motion.a 
             href="https://www.linkedin.com/in/presian-kisyov/" 
             target="_blank" 
@@ -919,14 +772,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
+            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
           >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
-              <Linkedin className="w-6 h-6 sm:w-6 sm:h-6" strokeWidth={1.5} />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
+              <Linkedin className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={1.5} />
             </div>
             <div className="text-center">
-              <h3 className="text-white font-medium text-base sm:text-lg">LinkedIn</h3>
-              <p className="text-zinc-500 text-xs sm:text-sm mt-1">Presiyan</p>
+              <h3 className="text-white font-medium text-sm sm:text-base">LinkedIn</h3>
+              <p className="text-zinc-500 text-xs font-bold mt-0.5">Presiyan</p>
             </div>
           </motion.a>
 
@@ -938,14 +791,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
+            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
           >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
-              <Instagram className="w-6 h-6 sm:w-6 sm:h-6" strokeWidth={1.5} />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
+              <Instagram className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={1.5} />
             </div>
             <div className="text-center">
-              <h3 className="text-white font-medium text-base sm:text-lg">Instagram</h3>
-              <p className="text-zinc-500 text-xs sm:text-sm mt-1">@p.kisyovv</p>
+              <h3 className="text-white font-medium text-sm sm:text-base">Instagram</h3>
+              <p className="text-zinc-500 text-xs mt-0.5">@p.kisyovv</p>
             </div>
           </motion.a>
 
@@ -955,14 +808,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group col-span-1 sm:col-span-2 lg:col-span-1"
+            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group col-span-1 sm:col-span-2 lg:col-span-1"
           >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
-              <Mail className="w-6 h-6 sm:w-6 sm:h-6" strokeWidth={1.5} />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
+              <Mail className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={1.5} />
             </div>
             <div className="text-center">
-              <h3 className="text-white font-medium text-base sm:text-lg">Имейл</h3>
-              <p className="text-zinc-500 text-xs sm:text-sm mt-1 truncate max-w-[200px] sm:max-w-[150px]">preskokisiov@gmail.com</p>
+              <h3 className="text-white font-medium text-sm sm:text-base">Имейл</h3>
+              <p className="text-zinc-500 text-xs mt-0.5 truncate max-w-[200px] sm:max-w-[150px]">preskokisiov@gmail.com</p>
             </div>
           </motion.a>
         </div>
