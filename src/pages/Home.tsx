@@ -165,10 +165,6 @@ export default function Home() {
               „Тези 30 цента няма да променят <span className="text-brand font-semibold">твоя</span> живот. Но ще променят <span className="text-brand font-semibold">нечий друг</span>.“
             </p>
             
-            <p className="text-zinc-400 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Проектът цели да изгради трайни навици за съпричастност сред учениците, превръщайки даряването на дребно ресто в спонтанен и ценен жест за подкрепа на деца и семейства в нужда.
-            </p>
-            
             <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
               <motion.a 
                 href="https://spasen.netlify.app"
@@ -341,7 +337,7 @@ export default function Home() {
                           </div>
                           <h4 className="text-white font-bold text-base sm:text-lg mb-2">Топ дарители</h4>
                           <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
-                            Обявяваме месечните топ дарители, за да мотивираме споделеното утре.
+                            Обявяваме месечните топ дарители, огласяваме ги публично и им даваме награди.
                           </p>
                         </div>
                       </div>
