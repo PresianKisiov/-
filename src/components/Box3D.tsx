@@ -112,7 +112,7 @@ export default function Box3D() {
       <div className="flex flex-col items-center gap-10 sm:gap-14 w-full max-w-[340px] sm:max-w-[400px]">
         {/* 3D Scene viewport container */}
         <div 
-          className="relative w-full h-[360px] sm:h-[450px] flex items-center justify-center"
+          className="relative w-full h-[360px] sm:h-[450px] flex items-center justify-center touch-pan-y"
           style={{ perspective: '1200px' }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -145,9 +145,9 @@ export default function Box3D() {
 
         {/* The 3D Cube wrapper */}
         <motion.div
-          drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          dragElastic={0.1}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.05}
           onDrag={handleDrag}
           style={{ 
             rotateX, 

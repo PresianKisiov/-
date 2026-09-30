@@ -33,89 +33,27 @@ export default function Home() {
   return (
     <div className="pb-20 min-h-screen selection:bg-brand/30 selection:text-brand relative">
       
-      {/* Background Glows to fill empty sides */}
+      {/* Background Ambient Glows - Optimized for mobile 60/120fps scrolling */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.05, 0.1, 0.05],
-            x: [0, 50, 0],
-            y: [0, 30, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand/5 blur-[120px]" 
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.05, 0.08, 0.05],
-            x: [0, -40, 0],
-            y: [0, -20, 0]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand/5 blur-[120px]" 
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.03, 0.06, 0.03],
-            x: [0, 30, 0],
-            y: [0, 50, 0]
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[40%] right-[10%] w-[30vw] h-[30vw] rounded-full bg-brand/5 blur-[100px]" 
-        />
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] max-w-[500px] max-h-[500px] rounded-full bg-brand/[0.04] blur-[80px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] max-w-[500px] max-h-[500px] rounded-full bg-brand/[0.04] blur-[80px]" />
+        <div className="absolute top-[40%] right-[5%] w-[30vw] h-[30vw] max-w-[350px] max-h-[350px] rounded-full bg-brand/[0.03] blur-[70px]" />
       </div>
 
       {/* Hero Section */}
-      <section id="home" className="flex flex-col justify-center pt-4 sm:pt-12 pb-6 sm:pb-12 relative">
+      <section id="home" className="flex flex-col justify-center pt-3 sm:pt-12 pb-5 sm:pb-12 relative">
         
         {/* Hero Section Content */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-4 sm:space-y-8 relative w-full max-w-5xl z-10 mx-auto text-center lg:text-left px-2 sm:px-6 lg:pl-4"
         >
           <div className="flex items-baseline gap-2 sm:gap-4 justify-center lg:justify-start py-1">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-tight flex flex-wrap justify-center lg:justify-start">
-              {"Пресиян Кисьов".split(" ").map((word, wordIdx) => (
-                <span key={wordIdx} className="flex mr-[0.2em] last:mr-0">
-                  {word.split("").map((char, i) => (
-                    <motion.span
-                      key={i}
-                      initial={{ y: 30, opacity: 0, rotateX: -90, filter: "blur(6px)", scale: 0.85 }}
-                      animate={{ y: 0, opacity: 1, rotateX: 0, filter: "blur(0px)", scale: 1 }}
-                      whileHover={{ 
-                        y: -10,
-                        scale: 1.15,
-                        color: "#00e599",
-                        textShadow: "0 0 25px rgba(0,229,153,0.8)",
-                        transition: { duration: 0.2, type: "spring", stiffness: 300 }
-                      }}
-                      whileTap={{ 
-                        scale: 1.05,
-                        color: "#00e599",
-                        transition: { duration: 0.1 }
-                      }}
-                      transition={{ 
-                        y: {
-                          duration: 0.8, 
-                          delay: 0.1 + (wordIdx * 5 + i) * 0.05, 
-                          ease: [0.22, 1, 0.36, 1] 
-                        },
-                        opacity: { duration: 0.6, delay: 0.1 + (wordIdx * 5 + i) * 0.05 },
-                        rotateX: { duration: 0.8, delay: 0.1 + (wordIdx * 5 + i) * 0.05 },
-                        filter: { duration: 0.6, delay: 0.1 + (wordIdx * 5 + i) * 0.05 },
-                        scale: { duration: 0.6, delay: 0.1 + (wordIdx * 5 + i) * 0.05 }
-                      }}
-                      className="cursor-default inline-block origin-bottom touch-manipulation"
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </span>
-              ))}
+            <h1 className="text-[2.65rem] xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black sm:font-bold tracking-tight text-white leading-[1.08] flex flex-wrap justify-center lg:justify-start gap-x-2.5 sm:gap-x-4 select-none">
+              <span className="inline-block transition-colors duration-200 hover:text-brand">Пресиян</span>
+              <span className="inline-block transition-colors duration-200 hover:text-brand">Кисьов</span>
             </h1>
           </div>
         </motion.div>
@@ -124,9 +62,9 @@ export default function Home() {
       {/* Mission & Values Section - Clean & Natural */}
       <section 
         id="mission" 
-        className="scroll-mt-24 max-w-5xl mx-auto px-4 sm:px-6 pt-4 pb-2"
+        className="scroll-mt-24 max-w-5xl mx-auto px-4 sm:px-6 pt-3 pb-2"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-xl border border-brand/20 bg-[#0a1612]/60 hover:border-brand/35 transition-colors relative overflow-hidden shadow-[0_0_25px_rgba(0,229,153,0.03)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-2xl border border-brand/25 bg-[#0a1612]/75 hover:border-brand/40 transition-colors relative overflow-hidden shadow-[0_4px_24px_rgba(0,229,153,0.04)]">
           <div className="absolute inset-0 bg-gradient-to-r from-brand/[0.04] via-transparent to-transparent pointer-events-none" />
           <div className="space-y-1 relative z-10">
             <div className="flex items-center gap-2 text-xs text-zinc-400">
@@ -134,20 +72,20 @@ export default function Home() {
               <span aria-hidden="true" className="text-brand/40">·</span>
               <span className="text-brand/90 font-medium">Благотворителен проект</span>
             </div>
-            <p className="text-sm text-zinc-300 font-normal">
+            <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
               Интерактивна платформа за целенасочена благотворителност в училищата.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto shrink-0 relative z-10">
+          <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2 sm:gap-2.5 w-full sm:w-auto shrink-0 relative z-10">
             <a 
               href="https://spasen.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-sm font-medium text-zinc-950 bg-brand hover:bg-[#10b981] active:scale-[0.98] rounded-lg transition-all w-full sm:w-auto text-center touch-manipulation"
+              className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 min-h-[44px] text-xs sm:text-sm font-semibold text-zinc-950 bg-brand hover:bg-[#10b981] active:scale-[0.98] rounded-xl transition-all text-center touch-manipulation shadow-sm"
             >
-              <span>Разгледай демото</span>
-              <ArrowUpRight size={16} />
+              <span><span className="hidden xs:inline">Разгледай </span>демото</span>
+              <ArrowUpRight size={15} />
             </a>
 
             <button
@@ -160,10 +98,10 @@ export default function Home() {
                   setShowSpasenDetails(true);
                 }
               }}
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-sm font-medium text-zinc-300 hover:text-white bg-[#0a1612]/80 hover:bg-[#0d221b] active:scale-[0.98] border border-brand/20 hover:border-brand/40 rounded-lg transition-all w-full sm:w-auto text-center touch-manipulation"
+              className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 min-h-[44px] text-xs sm:text-sm font-medium text-zinc-300 hover:text-white bg-[#0a1612]/90 hover:bg-[#0d221b] active:scale-[0.98] border border-brand/20 hover:border-brand/40 rounded-xl transition-all text-center touch-manipulation"
             >
-              <span>{showSpasenDetails ? 'Скрий подробностите' : 'Как работи'}</span>
-              <ChevronDown size={16} className={cn("transition-transform duration-200", showSpasenDetails && "rotate-180")} />
+              <span>{showSpasenDetails ? 'Скрий' : 'Как работи'}</span>
+              <ChevronDown size={15} className={cn("transition-transform duration-200", showSpasenDetails && "rotate-180")} />
             </button>
           </div>
         </div>
