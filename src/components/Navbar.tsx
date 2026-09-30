@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -7,7 +7,6 @@ const navLinks = [
   { name: 'Начало', path: '#home' },
   { name: 'СПАСЕН', path: '#mission' },
   { name: 'За мен', path: '#about' },
-  { name: 'Контакти', path: '#contact' },
 ];
 
 interface NavbarProps {
@@ -239,29 +238,6 @@ export default function Navbar({ onNavClick }: NavbarProps) {
               >
                 СПАСЕН <span className="opacity-70 text-xs">ДЕМО ВЕРСИЯ</span>
               </motion.a>
-
-              <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
-                <div className="space-y-1">
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-black">Контакти</p>
-                  <p className="text-white font-medium">preskokisiov@gmail.com</p>
-                </div>
-                <div className="flex gap-4">
-                  {[
-                    { Icon: Instagram, href: "https://www.instagram.com/p.kisyovv/?hl=en" },
-                    { Icon: Linkedin, href: "https://www.linkedin.com/in/presian-kisyov/" }
-                  ].map((social, i) => (
-                    <a 
-                      key={i}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-white/5 text-zinc-400 hover:text-brand border border-white/5"
-                    >
-                      <social.Icon size={20} />
-                    </a>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </motion.div>
         )}
