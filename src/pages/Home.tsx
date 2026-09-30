@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database, XCircle, CheckCircle2, User } from 'lucide-react';
+import { Mic, Users, Instagram, Mail, Linkedin, Shield, Heart, Calendar, Lightbulb, ArrowRight, ArrowUpRight, ChevronDown, Compass, Info, Sparkles, MapPin, Rocket, HelpCircle, BatteryFull, BatteryMedium, Droplets, Utensils, HomeIcon, GraduationCap, Pill, Coins, Repeat, Target, Wallet, QrCode, Scan, Cpu, ClipboardCheck, Trophy, Eye, Database, XCircle, CheckCircle2, User } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Box3D from '../components/Box3D';
 
@@ -68,50 +68,48 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section id="home" className="flex flex-col justify-center pt-32 sm:pt-40 pb-12 sm:pb-16 relative">
+      <section id="home" className="flex flex-col justify-center pt-4 sm:pt-12 pb-6 sm:pb-12 relative">
         
         {/* Hero Section Content */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-6 sm:space-y-10 relative w-full max-w-5xl z-10 mx-auto text-center lg:text-left px-4 sm:px-6 lg:pl-4"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="space-y-4 sm:space-y-8 relative w-full max-w-5xl z-10 mx-auto text-center lg:text-left px-2 sm:px-6 lg:pl-4"
         >
           <div className="flex items-baseline gap-2 sm:gap-4 justify-center lg:justify-start py-1">
-            <h1 className="text-[2.75rem] sm:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-none flex flex-wrap justify-center lg:justify-start">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-tight flex flex-wrap justify-center lg:justify-start">
               {"Пресиян Кисьов".split(" ").map((word, wordIdx) => (
                 <span key={wordIdx} className="flex mr-[0.2em] last:mr-0">
                   {word.split("").map((char, i) => (
                     <motion.span
                       key={i}
-                      initial={{ y: 40, opacity: 0, rotateX: -90, filter: "blur(10px)", scale: 0.8 }}
+                      initial={{ y: 30, opacity: 0, rotateX: -90, filter: "blur(6px)", scale: 0.85 }}
                       animate={{ y: 0, opacity: 1, rotateX: 0, filter: "blur(0px)", scale: 1 }}
                       whileHover={{ 
-                        y: -15,
-                        scale: 1.2,
+                        y: -10,
+                        scale: 1.15,
                         color: "#00e599",
-                        textShadow: "0 0 40px rgba(0,229,153,0.9)",
+                        textShadow: "0 0 25px rgba(0,229,153,0.8)",
                         transition: { duration: 0.2, type: "spring", stiffness: 300 }
                       }}
                       whileTap={{ 
-                        y: -40,
-                        scale: 1.3,
-                        color: "#00FF00",
-                        textShadow: "0 0 60px rgba(0,255,0,1)",
-                        transition: { type: "spring", stiffness: 500, damping: 15 }
+                        scale: 1.05,
+                        color: "#00e599",
+                        transition: { duration: 0.1 }
                       }}
                       transition={{ 
                         y: {
-                          duration: 1.2, 
-                          delay: 0.2 + (wordIdx * 5 + i) * 0.08, 
+                          duration: 0.8, 
+                          delay: 0.1 + (wordIdx * 5 + i) * 0.05, 
                           ease: [0.22, 1, 0.36, 1] 
                         },
-                        opacity: { duration: 0.8, delay: 0.2 + (wordIdx * 5 + i) * 0.08 },
-                        rotateX: { duration: 1.2, delay: 0.2 + (wordIdx * 5 + i) * 0.08 },
-                        filter: { duration: 1, delay: 0.2 + (wordIdx * 5 + i) * 0.08 },
-                        scale: { duration: 1, delay: 0.2 + (wordIdx * 5 + i) * 0.08 }
+                        opacity: { duration: 0.6, delay: 0.1 + (wordIdx * 5 + i) * 0.05 },
+                        rotateX: { duration: 0.8, delay: 0.1 + (wordIdx * 5 + i) * 0.05 },
+                        filter: { duration: 0.6, delay: 0.1 + (wordIdx * 5 + i) * 0.05 },
+                        scale: { duration: 0.6, delay: 0.1 + (wordIdx * 5 + i) * 0.05 }
                       }}
-                      className="cursor-default inline-block origin-bottom"
+                      className="cursor-default inline-block origin-bottom touch-manipulation"
                     >
                       {char}
                     </motion.span>
@@ -123,106 +121,73 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Mission & Values Section */}
-      <motion.section 
+      {/* Mission & Values Section - Clean & Natural */}
+      <section 
         id="mission" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-8 sm:pt-16 px-4 sm:px-6"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="scroll-mt-24 max-w-5xl mx-auto px-4 sm:px-6 pt-4 pb-2"
       >
-        <div className="p-6 sm:p-16 rounded-[2.5rem] sm:rounded-[4rem] bg-[#0a1612]/40 border border-brand/20 relative overflow-hidden flex flex-col items-center text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,229,153,0.08),transparent_70%)]" />
-          
-          <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto space-y-6 sm:space-y-10">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-brand/20 text-brand text-xs sm:text-sm font-black uppercase tracking-[0.2em] rounded-full border border-brand/40 shadow-[0_0_20px_rgba(0,229,153,0.3)]"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand shadow-[0_0_8px_rgba(0,229,153,0.8)]"></span>
-              </span>
-              Проект в процес
-            </motion.div>
-            
-            <h2 className="text-5xl sm:text-8xl font-black tracking-tighter text-brand drop-shadow-[0_0_30px_rgba(0,229,153,0.3)] uppercase">
-              СПАСЕН
-            </h2>
-            
-            <div className="max-w-3xl mx-auto space-y-6 px-4">
-              <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug sm:leading-relaxed tracking-tight">
-                Инициатива за поставяне на <span className="text-brand">интерактивни кутии</span> с класации и награди за <span className="text-brand">целенасочена благотворителност</span> в училищата.
-              </p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-xl border border-brand/20 bg-[#0a1612]/60 hover:border-brand/35 transition-colors relative overflow-hidden shadow-[0_0_25px_rgba(0,229,153,0.03)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-brand/[0.04] via-transparent to-transparent pointer-events-none" />
+          <div className="space-y-1 relative z-10">
+            <div className="flex items-center gap-2 text-xs text-zinc-400">
+              <span className="font-semibold text-white tracking-tight">СПАСЕН</span>
+              <span aria-hidden="true" className="text-brand/40">·</span>
+              <span className="text-brand/90 font-medium">Благотворителен проект</span>
             </div>
-
-            <div className="w-16 h-px bg-brand/30 my-4" />
-
-            <p className="text-lg sm:text-3xl text-zinc-300 font-medium italic leading-tight max-w-3xl">
-              „Тези 30 цента няма да променят <span className="text-brand font-semibold">твоя</span> живот. Но ще променят <span className="text-brand font-semibold">нечий друг</span>.“
+            <p className="text-sm text-zinc-300 font-normal">
+              Интерактивна платформа за целенасочена благотворителност в училищата.
             </p>
-            
-            <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-              <motion.a 
-                href="https://spasen.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-8 py-4 rounded-full shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_35px_rgba(0,229,153,0.5)] hover:bg-white transition-all text-xs sm:text-sm tracking-wider uppercase w-full sm:w-auto"
-              >
-                Разгледай демо версията
-                <ArrowRight size={16} />
-              </motion.a>
+          </div>
 
-              <motion.button
-                onClick={() => {
-                  if (showSpasenDetails) {
-                    setShowSpasenDetails(false);
-                    const el = document.getElementById('mission');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    setShowSpasenDetails(true);
-                  }
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-8 py-4 rounded-full uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:shadow-[0_0_35px_rgba(0,229,153,0.5)] hover:bg-white transition-all text-center w-full sm:w-auto"
-              >
-                {showSpasenDetails ? 'Скрий подробностите' : 'Научи как работи СПАСЕН'}
-                <ArrowRight size={16} className={cn("transition-transform duration-300", showSpasenDetails && "rotate-90")} />
-              </motion.button>
-            </div>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto shrink-0 relative z-10">
+            <a 
+              href="https://spasen.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-sm font-medium text-zinc-950 bg-brand hover:bg-[#10b981] active:scale-[0.98] rounded-lg transition-all w-full sm:w-auto text-center touch-manipulation"
+            >
+              <span>Разгледай демото</span>
+              <ArrowUpRight size={16} />
+            </a>
+
+            <button
+              onClick={() => {
+                if (showSpasenDetails) {
+                  setShowSpasenDetails(false);
+                  const el = document.getElementById('mission');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  setShowSpasenDetails(true);
+                }
+              }}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] text-sm font-medium text-zinc-300 hover:text-white bg-[#0a1612]/80 hover:bg-[#0d221b] active:scale-[0.98] border border-brand/20 hover:border-brand/40 rounded-lg transition-all w-full sm:w-auto text-center touch-manipulation"
+            >
+              <span>{showSpasenDetails ? 'Скрий подробностите' : 'Как работи'}</span>
+              <ChevronDown size={16} className={cn("transition-transform duration-200", showSpasenDetails && "rotate-180")} />
+            </button>
           </div>
         </div>
 
         <AnimatePresence mode="wait">
           {showSpasenDetails && (
             <motion.div 
-              initial={{ opacity: 0, height: 0, scale: 0.98 }}
+              initial={{ opacity: 0, height: 0, scale: 0.99 }}
               animate={{ opacity: 1, height: 'auto', scale: 1 }}
-              exit={{ opacity: 0, height: 0, scale: 0.98 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, height: 0, scale: 0.99 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] bg-[#0a1612]/40 border border-brand/20 relative mt-4">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-brand/5 blur-[80px] pointer-events-none" />
+              <div className="p-4 sm:p-10 rounded-2xl bg-[#0a1612]/50 border border-brand/20 relative mt-4 shadow-[0_0_30px_rgba(0,229,153,0.03)]">
                 
                 <div className="relative z-10 space-y-6 sm:space-y-12">
                   <div className="text-zinc-400 space-y-10 sm:space-y-16 leading-relaxed">
                     
                     {/* Пътят на едно дарение */}
                     <div className="space-y-8 pt-4">
-                      <div className="text-center space-y-3">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 text-brand rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border border-brand/20">
-                          <Sparkles size={12} />
-                          Интерактивен процес
-                        </div>
-                        <h3 className="text-white font-black text-2xl sm:text-4xl tracking-tight uppercase">Пътят на едно дарение</h3>
-                        <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+                      <div className="text-center space-y-2">
+                        <p className="text-xs font-medium text-brand">Интерактивен процес</p>
+                        <h3 className="text-white font-bold text-2xl sm:text-3xl tracking-tight">Пътят на едно дарение</h3>
+                        <p className="text-zinc-400 text-sm max-w-xl mx-auto">
                           Виж как физическата кутия и софтуерната система си взаимодействат:
                         </p>
                       </div>
@@ -594,34 +559,32 @@ export default function Home() {
                     <div className="space-y-6 sm:space-y-8 pt-8 sm:pt-16 border-t border-brand/20 text-center flex flex-col items-center">
                       <h4 className="text-brand font-black text-3xl sm:text-5xl uppercase tracking-wider mb-2 sm:mb-4 leading-tight drop-shadow-[0_0_15px_rgba(0,229,153,0.3)]">Мисията в действие</h4>
                       
-                      <div className="py-6 sm:py-10 w-full flex justify-center">
-                        <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand text-[#0a1612] font-black px-6 sm:px-10 py-4 sm:py-5 rounded-full uppercase tracking-widest text-xs sm:text-base shadow-[0_0_20px_rgba(0,229,153,0.4)] hover:shadow-[0_0_35px_rgba(0,229,153,0.6)] hover:bg-white transition-all text-center w-full sm:w-auto">
-                          ТЕСТВАЙ ДЕМО ВЕРСИЯТА СЕГА
-                          <ArrowRight size={20} />
+                      <div className="py-6 sm:py-8 w-full flex justify-center">
+                        <a href="https://spasen.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-brand hover:bg-[#10b981] text-zinc-950 font-semibold px-6 py-3 rounded-lg text-sm transition-colors shadow-sm">
+                          <span>Отвори демо версията на СПАСЕН</span>
+                          <ArrowUpRight size={16} />
                         </a>
                       </div>
                       
-                      <div className="mt-4 p-5 sm:p-8 bg-brand/5 border border-brand/20 rounded-2xl sm:rounded-3xl max-w-4xl w-full text-center">
-                        <p className="text-white font-medium text-lg sm:text-2xl italic leading-relaxed">
-                          "А парите отиват там, където трябва: при болни деца, при семейства, за които едно лекарство е непосилно. При хора с проблеми, които им пречат да са свободни и да правят това, което искат, както ние можем."
+                      <div className="mt-4 p-5 sm:p-6 bg-zinc-900/40 border border-zinc-800 rounded-xl max-w-3xl w-full text-center">
+                        <p className="text-zinc-300 text-base sm:text-lg italic leading-relaxed">
+                          „А парите отиват там, където трябва: при болни деца, при семейства, за които едно лекарство е непосилно. При хора с проблеми, които им пречат да са свободни и да правят това, което искат, както ние можем.“
                         </p>
                       </div>
                     </div>
 
                     {/* Collapse Button */}
-                    <div className="flex justify-center pt-8 w-full">
-                      <motion.button
+                    <div className="flex justify-center pt-6 w-full">
+                      <button
                         onClick={() => {
                           setShowSpasenDetails(false);
                           const el = document.getElementById('mission');
                           if (el) el.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center justify-center rounded-full text-xs sm:text-sm font-bold transition-all bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white h-12 px-8 border border-white/10 uppercase tracking-widest w-full sm:w-auto"
+                        className="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors bg-zinc-800/60 text-zinc-300 hover:bg-zinc-800 hover:text-white h-10 px-5 border border-zinc-700/60"
                       >
                         Скрий подробностите
-                      </motion.button>
+                      </button>
                     </div>
 
                   </div>
@@ -630,7 +593,7 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.section>
+      </section>
 
 
 
@@ -642,25 +605,27 @@ export default function Home() {
       {/* About Me Section */}
       <motion.section 
         id="about" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 max-w-5xl mx-auto pt-12 sm:pt-32 px-4 sm:px-6"
-        initial={{ opacity: 0, y: 30 }}
+        className="scroll-mt-24 space-y-6 sm:space-y-10 max-w-5xl mx-auto pt-8 sm:pt-20 px-4 sm:px-6"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tighter text-white">За мен</h2>
+        <div className="space-y-3 sm:space-y-4 text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">За <span className="text-brand">мен</span></h2>
         </div>
 
-        <div className="relative p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-[#0a1612]/60 border border-brand/20 overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.05)]">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="relative p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0a1612]/60 border border-brand/20 hover:border-brand/35 transition-colors overflow-hidden shadow-[0_0_50px_rgba(0,229,153,0.06)]">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/35 to-transparent" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand/5 blur-[80px] rounded-full pointer-events-none" />
           
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10 items-center">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 relative z-10 items-center">
             
             {/* Content Side */}
-            <div className="flex-1 space-y-6 sm:space-y-8">
+            <div className="flex-1 space-y-4 sm:space-y-6">
               
-              <div className="space-y-4 text-zinc-400 text-sm sm:text-lg leading-relaxed">
+              <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
                 <p>
                   Казвам се Пресиян, на 15 години съм и живея в Габрово. Обичам да правя неща. Сайтове, проекти, каквото ми дойде на ума. Не съм от хората, които могат да седят и да чакат времето да минава безцелно, постоянно си намирам занимания и се старая да се развивам.
                 </p>
@@ -668,7 +633,7 @@ export default function Home() {
                   Опитвам се да не си губя времето и да не давам обещания, които не мога да изпълня. Понякога успявам, понякога не, но поне се старая. Постоянно ми хрумват идеи, за които нямам достатъчно време.
                 </p>
                 <p>
-                  Най-големият и важен проект за мен е <span className="text-brand font-bold">СПАСЕН</span>, за който може да разгледате по-подробно тук в сайта.
+                  Най-големият и важен проект за мен е <span className="text-brand font-semibold">СПАСЕН</span>, за който може да разгледате по-подробно тук в сайта.
                 </p>
               </div>
             </div>
@@ -677,19 +642,17 @@ export default function Home() {
         </div>
       </motion.section>
 
-
-
       {/* Contact Section */}
       <motion.section 
         id="contact" 
-        className="scroll-mt-32 space-y-8 sm:space-y-12 pt-12 sm:pt-32 px-4 sm:px-6"
-        initial={{ opacity: 0, y: 30 }}
+        className="scroll-mt-24 space-y-6 sm:space-y-10 pt-8 sm:pt-20 px-4 sm:px-6"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="space-y-4 sm:space-y-6 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tighter text-white">Свържете се с мен</h2>
+        <div className="space-y-3 sm:space-y-4 text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">Свържете се с мен</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
@@ -697,18 +660,18 @@ export default function Home() {
             href="https://www.linkedin.com/in/presian-kisyov/" 
             target="_blank" 
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 active:scale-[0.98] transition-all group touch-manipulation"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
-              <Linkedin className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-105 transition-transform">
+              <Linkedin className="w-5 h-5" strokeWidth={1.5} />
             </div>
             <div className="text-center">
               <h3 className="text-white font-medium text-sm sm:text-base">LinkedIn</h3>
-              <p className="text-zinc-500 text-xs font-bold mt-0.5">Presiyan</p>
+              <p className="text-zinc-500 text-xs font-medium mt-0.5">Presiyan</p>
             </div>
           </motion.a>
 
@@ -716,35 +679,35 @@ export default function Home() {
             href="https://www.instagram.com/p.kisyovv/?hl=en" 
             target="_blank" 
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group"
+            transition={{ duration: 0.4, delay: 0.15 }}
+            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 active:scale-[0.98] transition-all group touch-manipulation"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
-              <Instagram className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-105 transition-transform">
+              <Instagram className="w-5 h-5" strokeWidth={1.5} />
             </div>
             <div className="text-center">
               <h3 className="text-white font-medium text-sm sm:text-base">Instagram</h3>
-              <p className="text-zinc-500 text-xs mt-0.5">@p.kisyovv</p>
+              <p className="text-zinc-500 text-xs font-medium mt-0.5">@p.kisyovv</p>
             </div>
           </motion.a>
 
           <motion.a 
             href="mailto:preskokisiov@gmail.com" 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 transition-all group col-span-1 sm:col-span-2 lg:col-span-1"
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-5 rounded-2xl bg-[#0a1612]/40 border border-brand/20 hover:bg-[#0a1612]/60 active:scale-[0.98] transition-all group col-span-1 sm:col-span-2 lg:col-span-1 touch-manipulation"
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-110 transition-transform">
-              <Mail className="w-5 h-5 sm:w-5 sm:h-5" strokeWidth={1.5} />
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand/10 flex items-center justify-center text-brand border border-brand/20 group-hover:scale-105 transition-transform">
+              <Mail className="w-5 h-5" strokeWidth={1.5} />
             </div>
             <div className="text-center">
               <h3 className="text-white font-medium text-sm sm:text-base">Имейл</h3>
-              <p className="text-zinc-500 text-xs mt-0.5 truncate max-w-[200px] sm:max-w-[150px]">preskokisiov@gmail.com</p>
+              <p className="text-zinc-500 text-xs font-medium mt-0.5 truncate max-w-full">preskokisiov@gmail.com</p>
             </div>
           </motion.a>
         </div>

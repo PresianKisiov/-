@@ -100,7 +100,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
           <span className="text-xl sm:text-2xl font-bold tracking-tighter text-white">Преско</span>
           <motion.svg 
             viewBox="0 0 200 200" 
-            className="h-14 w-auto stroke-brand/90 fill-none -ml-3" 
+            className="h-10 sm:h-14 w-auto stroke-brand/90 fill-none -ml-2 sm:-ml-3" 
             strokeWidth="4" 
             strokeLinecap="round" 
             strokeLinejoin="round"
@@ -150,7 +150,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
         <div className="flex items-center gap-4 sm:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-3 rounded-full text-brand bg-surface/80 backdrop-blur-xl border border-border hover:bg-surface-hover transition-colors z-[100] relative"
+            className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-brand bg-surface/80 backdrop-blur-xl border border-border hover:bg-surface-hover active:scale-95 transition-all z-[100] relative touch-manipulation"
             aria-label="Toggle menu"
           >
             <motion.div
@@ -158,7 +158,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
               animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </motion.div>
           </button>
         </div>
@@ -194,13 +194,13 @@ export default function Navbar({ onNavClick }: NavbarProps) {
             
             {/* Menu Content */}
             <motion.div
-              initial={{ y: -50, opacity: 0 }}
+              initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -50, opacity: 0 }}
+              exit={{ y: -30, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative w-full h-[100dvh] flex flex-col justify-center px-8"
+              className="relative w-full h-[100dvh] max-h-[100dvh] flex flex-col justify-center px-6 sm:px-8 py-10 overflow-y-auto"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 {navLinks.map((link, idx) => (
                   <motion.a
                     key={idx}
@@ -210,18 +210,18 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05 }}
                     className={cn(
-                      "text-3xl font-black tracking-tighter uppercase transition-all duration-300 flex items-center justify-between group",
+                      "text-2xl font-black tracking-tight uppercase py-2 transition-all duration-300 flex items-center justify-between group touch-manipulation",
                       activeSection === link.path 
                         ? "text-brand" 
-                        : "text-white/40 hover:text-white"
+                        : "text-white/60 hover:text-white"
                     )}
                   >
                     <span>{link.name}</span>
                     <ArrowRight 
-                      size={28} 
+                      size={22} 
                       className={cn(
                         "transition-all duration-300",
-                        activeSection === link.path ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                        activeSection === link.path ? "opacity-100 translate-x-0 text-brand" : "opacity-0 -translate-x-4"
                       )} 
                     />
                   </motion.a>
@@ -234,10 +234,10 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-8 bg-brand text-[#0a1612] font-black py-4 rounded-full uppercase tracking-wider text-xl text-center shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:bg-white transition-all w-full flex items-center justify-center gap-2"
+                transition={{ delay: 0.35 }}
+                className="mt-6 bg-brand text-[#0a1612] font-black py-3.5 rounded-xl uppercase tracking-wider text-base text-center shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:bg-white active:scale-[0.98] transition-all w-full flex items-center justify-center gap-2 touch-manipulation"
               >
-                СПАСЕН <span className="opacity-70 text-sm">ДЕМО ВЕРСИЯ</span>
+                СПАСЕН <span className="opacity-70 text-xs">ДЕМО ВЕРСИЯ</span>
               </motion.a>
 
               <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">

@@ -20,7 +20,7 @@ export default function Layout() {
       </AnimatePresence>
       <Navbar onNavClick={triggerLoading} />
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 flex flex-col min-h-screen relative z-10">
-        <main className="flex-grow py-12 sm:py-24">
+        <main className="flex-grow pt-16 sm:pt-28 pb-10 sm:pb-24">
           <Outlet />
         </main>
         <Footer />
