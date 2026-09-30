@@ -13,8 +13,6 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="w-12 h-px bg-brand/20 my-1" />
-
       <div className="flex items-center gap-3 sm:gap-4">
         <a 
           href="https://www.instagram.com/p.kisyovv/?hl=en" 
