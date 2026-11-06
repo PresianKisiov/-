@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
   { name: 'Начало', path: '#home' },
-  { name: 'СПАСЕН', path: '#mission' },
   { name: 'За мен', path: '#about' },
 ];
 
@@ -162,18 +161,7 @@ export default function Navbar({ onNavClick }: NavbarProps) {
           </button>
         </div>
 
-        <div className="hidden sm:flex items-center">
-          <motion.a
-            href="https://spasen.netlify.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-brand text-[#0a1612] font-black px-6 py-2 rounded-full uppercase tracking-wider text-sm shadow-[0_0_15px_rgba(0,229,153,0.3)] hover:shadow-[0_0_25px_rgba(0,229,153,0.5)] hover:bg-white transition-all flex items-center gap-2"
-          >
-            СПАСЕН <span className="opacity-70 text-xs">ДЕМО ВЕРСИЯ</span>
-          </motion.a>
-        </div>
+        <div className="hidden sm:block w-24" />
       </div>
 
       <AnimatePresence>
@@ -226,18 +214,6 @@ export default function Navbar({ onNavClick }: NavbarProps) {
                   </motion.a>
                 ))}
               </div>
-
-              <motion.a
-                href="https://spasen.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 }}
-                className="mt-6 bg-brand text-[#0a1612] font-black py-3.5 rounded-xl uppercase tracking-wider text-base text-center shadow-[0_0_20px_rgba(0,229,153,0.3)] hover:bg-white active:scale-[0.98] transition-all w-full flex items-center justify-center gap-2 touch-manipulation"
-              >
-                СПАСЕН <span className="opacity-70 text-xs">ДЕМО ВЕРСИЯ</span>
-              </motion.a>
             </motion.div>
           </motion.div>
         )}
